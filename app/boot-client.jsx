@@ -11,7 +11,7 @@ import { Route, IndexRoute, Redirect } from 'react-router'
 import { ReduxRouter } from 'redux-router'
 
 // Dev Tools
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+import DevTools from './components/ui/DevTools.jsx'
 
 // Components
 import {
@@ -32,16 +32,12 @@ let store = configureStore({})
 class Root extends React.Component {
     render() {
         // si esta en desarrollo, mostrar el panel lateral de reduxDevTools
-        let devToolsPanel = __IS_DEVELOPMENT__?
-            <DebugPanel top right bottom>
-                <DevTools store={store} monitor={LogMonitor} />
-            </DebugPanel>
-            : null
+        let devToolsPanel = __IS_DEVELOPMENT__? <DevTools /> : <div></div>
 
         // las rutas (Route) pueden tener un metodo onEnter y onLeave
         return (
-            <div>
-                <Provider store={store}>
+            <Provider store={store}>
+                <div>
                     <ReduxRouter>
                         <Route path="/" component={ App }>
                             <Route path="servers" component={ ServersView } />
@@ -56,9 +52,9 @@ class Root extends React.Component {
                             <Route path="*" component={ NotFound }></Route>
                         </Route>
                     </ReduxRouter>
-                </Provider>
-                { devToolsPanel }
-            </div>
+                    {devToolsPanel}
+                </div>
+            </Provider>
         );
     }
 }
