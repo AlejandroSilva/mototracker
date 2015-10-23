@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{mototracker node_modules}" />
+    <file url="PROJECT" libraries="{react-DefinitelyTyped, react-bootstrap-DefinitelyTyped, react-dom-DefinitelyTyped, react-redux-DefinitelyTyped, react-router-DefinitelyTyped, redux-DefinitelyTyped, redux-actions-DefinitelyTyped, redux-devtools-DefinitelyTyped, rethinkdb-DefinitelyTyped}" />
+    <includedPredefinedLibrary name="ECMAScript 6" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>
