@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 // Actions
-import * as CounterActions from '../actions/counterActions.js'
 import * as ServersActions from '../actions/serversActions.js'
 
 // Modules

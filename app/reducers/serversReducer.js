@@ -3,6 +3,7 @@ import * as serverAction from '../actions/serversActions.js';
 let defaultState = {
     list: []
 }
+export let serversDefaultState = defaultState
 
 // El reducer recibe el estado anterior/actual, y la ACCION que fue lanzada con DISPATCH, retorna un nuevo STATE
 export let serversReducer = (state=defaultState, action={})=>{
@@ -55,5 +56,3 @@ export let serversReducer = (state=defaultState, action={})=>{
             return state;
     }
 }
-
-export let serversDefaultState = defaultState

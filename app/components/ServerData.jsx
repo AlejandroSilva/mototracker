@@ -4,12 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
-// Actions
-import * as ServersActions from '../actions/serversActions.js'
-
 class ServerData extends React.Component {
     render() {
-        const currentData = this.props.theServer.currentData
         let content
         if(!this.props.theServer.name){
             content = "[servidor no existe]"

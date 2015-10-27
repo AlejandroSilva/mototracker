@@ -4,10 +4,12 @@
   "description": "nodo heath para el envio de informacion del sistema",
   "main": "server.js",
   "scripts": {
-    "webpack-prod": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "babel-dev": "NODE_ENV=development babel-node server.js --source-maps --loglevel error",
+    "webpack-prod": "NODE_ENV=production webpack --config webpack.config.prod.js > webpack.log",
+    "babel-dev" : "NODE_ENV=development babel-node server.js --source-maps --lo glevel error",
     "babel-prod": "NODE_ENV=production babel-node server.js --source-maps",
-    "babel-test": "NODE_ENV=testing ./node_modules/.bin/mocha --compilers js:babel/register --timeout 8000 test/v1.js "
+    "babel-test": "NODE_ENV=testing ./node_modules/.bin/mocha --compilers js:babel/register --timeout 8000 test/v1.js ",
+    "start-server": "NODE_ENV=production pm2 start server.js --name server --interpreter babel-node",
+    "stop-server" : "pm2 stop server"
   },
   "author": "toth.cl",
   "license": "ISC",

@@ -13,12 +13,11 @@ let server = app.listen(appConfig.port, function() {
 
 
 // we start a webpack-dev-server with our config
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var webpackConfig = require('./webpack.config.js');
-
+import webpack from 'webpack'
 if(__IS_DEVELOPMENT__){
-    new WebpackDevServer(webpack(webpackConfig), {
+    let WebpackDevServer = require('webpack-dev-server')
+    let webpackConfigDev = require('./webpack.config.dev.js')
+    new WebpackDevServer(webpack(webpackConfigDev), {
         hot: true,
         historyApiFallback: true,
         proxy: {

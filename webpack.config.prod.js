@@ -16,5 +16,8 @@ module.exports = {
             {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'react-hot' },
             {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'babel', query: {stage: 0} }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 };
