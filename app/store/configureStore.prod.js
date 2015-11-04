@@ -9,7 +9,8 @@ import thunk from 'redux-thunk';
 
 // Router
 import { reduxReactRouter } from 'redux-router'
-import createHistory from '../../node_modules/react-router/node_modules/history/lib/createBrowserHistory'
+//import createHistory from '../../node_modules/react-router/node_modules/history/lib/createBrowserHistory'
+import createHistory from 'history/lib/createBrowserHistory'
 
 // Reducers
 import { combinedReducers, combinedInitialStates } from '../reducers/combinedReducers.js'

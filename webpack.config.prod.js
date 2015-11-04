@@ -19,6 +19,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
         new webpack.DefinePlugin({
             WEBPACK_VERSION: JSON.stringify('v'+packagejson.version),
             WEBPACK_NAME: JSON.stringify(packagejson.name),
@@ -26,6 +27,5 @@ module.exports = {
             WEBPACK_IS_PRODUCTION:  true,
             WEBPACK_IS_TESTING:     false
         })
-        //new webpack.optimize.UglifyJsPlugin()
     ]
 }
