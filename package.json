@@ -1,5 +1,5 @@
 {
-  "name": "Moto-Tracker",
+  "name": "MotoTracker",
   "version": "1.5.3",
   "description": "sistema de rastreo por gps para proyecto de titulo",
   "main": "server.js",
