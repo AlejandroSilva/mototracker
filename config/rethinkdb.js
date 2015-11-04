@@ -1,17 +1,17 @@
-export let development = {
+export const development = {
     host: 'localhost',
     port: 28015,
     db: 'health_dev'
-};
+}
 
-export let production = {
+export const production = {
     host: 'localhost',
     port: 28015,
     db: 'health'
-};
+}
 
-export let test = {
+export const test = {
     host: 'localhost',
     port: 28015,
     db: 'health_test'
-};
+}

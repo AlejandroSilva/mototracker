@@ -1,5 +1,3 @@
-import { appConfig } from '../../config/index.js'
-
 // React, Redux, Router
 import React from 'react'
 import { bindActionCreators } from 'redux'
@@ -16,7 +14,7 @@ import { ServersList } from './index.js'
 @connect(
     (state)=> ({
         routerState: state.router,
-        servers: state.servers,
+        servers: state.servers
     }),
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
@@ -44,7 +42,7 @@ class App extends React.Component {
                     <header className="main-header">
                         <a href="index2.html" className="logo">
                             <span className="logo-mini"><b>T</b>H</span>
-                            <span className="logo-lg"><b>Toth</b>Health <small>v0.1</small></span>
+                            <span className="logo-lg"><b>{WEBPACK_NAME}</b> <small>{WEBPACK_VERSION}</small></span>
                         </a>
 
                         <nav className="navbar navbar-static-top" role="navigation">
@@ -97,7 +95,7 @@ class App extends React.Component {
                         {this.props.children || "Seleccione un servidor desde el menu lateral"}
                     </div>
                 </div>
-        );
+        )
     }
 }
 

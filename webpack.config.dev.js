@@ -1,5 +1,6 @@
-var path    = require('path');
-var webpack = require('webpack');
+import path from 'path'
+import webpack from 'webpack'
+import * as environment from './utils/environment'
 
 module.exports = {
     entry:  [
@@ -8,14 +9,12 @@ module.exports = {
         // "only" prevents reload on syntax errors
         'webpack/hot/only-dev-server',
         // Appʼs entry point
-
         './app/boot-client.jsx'
     ],
     output: {
         path:     path.join(__dirname, 'public'),
         filename: 'bundle.js',
         publicPath: 'http://localhost:3001/'
-        //publicPath: 'http://google.com:84745/public'
     },
     //resolve: {
     //    modulesDirectories: ['node_modules', 'shared'],
@@ -29,10 +28,17 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            WEBPACK_VERSION:        environment.__VERSION__,
+            WEBPACK_NAME:           environment.__APP_NAME__,
+            WEBPACK_IS_DEVELOPMENT: environment.__IS_DEVELOPMENT__,
+            WEBPACK_IS_PRODUCTION:  environment.__IS_PRODUCTION__,
+            WEBPACK_IS_TESTING:     environment.__IS_TESTING__
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],
-    devtool: 'inline-source-map',
+    devtool: 'inline-source-map'
     //devServer: {
     //    hot: true,
     //    proxy: {

@@ -1,14 +1,13 @@
-'use strict';
-
-import express from 'express';
-import bodyParser from 'body-parser';
-import morgan from 'morgan';
-let app = express();
+import express from 'express'
+import bodyParser from 'body-parser'
+import morgan from 'morgan'
+import { appConfig } from '../config/index'
+let app = express()
 
 /**
  * Options
  */
-app.set('view cache', false);
+app.set('view cache', false)
 
 /**
  * Middlewares
@@ -18,16 +17,16 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 // parse application/json
-app.use(bodyParser.json());
-app.use(morgan('combined'));
+app.use(bodyParser.json())
+app.use(morgan('combined'))
 // serving static files
-app.use(express.static('public'));
+app.use(express.static('public'))
 
 /**
  * Routes
  */
-import v1 from '../api/v1/index.js';
-app.use('/v1/', v1);
+import v1 from '../api/v1/index.js'
+app.use('/v1/', v1)
 
 // React + Redux libs
 import React from 'react'
@@ -51,7 +50,7 @@ app.get('/*', function (req, res) {
                 <head>
                     <meta charset="utf-8"/>
                     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-                    <title>Health Monitor - Toth</title>
+                    <title>${appConfig.pageTitle}</title>
                     <!-- Bootstrap 3.3.5 -->
                     <link type="text/css" rel="stylesheet" href="/bootstrap/bootstrap.min.css">
                     <!-- AdminLTE -->
@@ -78,7 +77,7 @@ app.get('/*', function (req, res) {
 /*
  * Middlewares
  */
-import errorsHandler  from '../api/middlewares/errorsHandler.js';
-app.use(errorsHandler);
+import errorsHandler  from '../api/middlewares/errorsHandler.js'
+app.use(errorsHandler)
 
-export default app;
+export default app

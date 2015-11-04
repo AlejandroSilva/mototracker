@@ -1,16 +1,27 @@
-const version = 'v1.0.0'
+import {
+    __VERSION__,
+    __APP_NAME__
+} from '../utils/environment'
 
-export let development = {
+const pageTitle = `Gps tracker ${__VERSION__}`
+
+export const development = {
     port: 8888,
-    version
-};
+    name: __APP_NAME__,
+    version: __VERSION__,
+    pageTitle
+}
 
-export let production = {
-    port: 80,
-    version
-};
+export const production = {
+    port: 8008,
+    name: __APP_NAME__,
+    version: __VERSION__,
+    pageTitle
+}
 
-export let test = {
+export const testing = {
     port: 3003,
-    version
-};
+    name: __APP_NAME__,
+    version: __VERSION__,
+    pageTitle
+}

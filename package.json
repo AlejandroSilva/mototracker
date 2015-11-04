@@ -1,15 +1,15 @@
 {
-  "name": "health-server",
-  "version": "1.1.0",
-  "description": "nodo heath para el envio de informacion del sistema",
+  "name": "Moto-Tracker",
+  "version": "1.2.0",
+  "description": "sistema de rastreo por gps para proyecto de titulo",
   "main": "server.js",
   "scripts": {
-    "webpack-prod": "NODE_ENV=production webpack --config webpack.config.prod.js > webpack.log",
-    "babel-dev" : "NODE_ENV=development babel-node server.js --source-maps --lo glevel error",
+    "webpack-prod": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "babel-dev": "NODE_ENV=development babel-node server.js --source-maps --lo glevel error",
     "babel-prod": "NODE_ENV=production babel-node server.js --source-maps",
     "babel-test": "NODE_ENV=testing ./node_modules/.bin/mocha --compilers js:babel/register --timeout 8000 test/v1.js ",
     "start-server": "NODE_ENV=production pm2 start server.js --name server --interpreter babel-node",
-    "stop-server" : "pm2 stop server"
+    "stop-server": "pm2 stop server"
   },
   "author": "toth.cl",
   "license": "ISC",
@@ -18,7 +18,6 @@
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "history": "^1.10.2",
-    "lodash": "^3.10.1",
     "morgan": "^1.6.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",

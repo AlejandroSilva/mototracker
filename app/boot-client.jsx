@@ -1,6 +1,3 @@
-// Environment
-import { __IS_DEVELOPMENT__ } from '../config/index.js'
-
 // React
 import React from 'react'
 import ReactDOM from 'react-dom';
@@ -32,7 +29,7 @@ let store = configureStore({})
 class Root extends React.Component {
     render() {
         // si esta en desarrollo, mostrar el panel lateral de reduxDevTools
-        let devToolsPanel = __IS_DEVELOPMENT__? <DevTools /> : <div></div>
+        let devToolsPanel = WEBPACK_IS_DEVELOPMENT? <DevTools /> : <div></div>
 
         // las rutas (Route) pueden tener un metodo onEnter y onLeave
         return (
