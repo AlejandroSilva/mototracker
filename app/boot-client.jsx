@@ -7,9 +7,6 @@ import { Provider, connect } from 'react-redux'
 import { Route, IndexRoute, Redirect } from 'react-router'
 import { ReduxRouter } from 'redux-router'
 
-// Dev Tools
-import DevTools from './components/ui/DevTools.jsx'
-
 // Components
 import {
     App,
@@ -26,11 +23,18 @@ import {
 import configureStore from './store/configureStore.js'
 let store = configureStore({})
 
+// Dev Tools
+// si esta en desarrollo, mostrar el panel lateral de reduxDevTools
+let devToolsPanel
+if( WEBPACK_IS_DEVELOPMENT ){
+    var DevTools = require('./components/ui/DevTools.jsx')
+    devToolsPanel =  <DevTools/>
+}else{
+    devToolsPanel = <div></div>
+}
+
 class Root extends React.Component {
     render() {
-        // si esta en desarrollo, mostrar el panel lateral de reduxDevTools
-        let devToolsPanel = WEBPACK_IS_DEVELOPMENT? <DevTools /> : <div></div>
-
         // las rutas (Route) pueden tener un metodo onEnter y onLeave
         return (
             <Provider store={store}>
@@ -52,10 +56,10 @@ class Root extends React.Component {
                     {devToolsPanel}
                 </div>
             </Provider>
-        );
+        )
     }
 }
 ReactDOM.render(
     <Root />,
     document.getElementById('appRoot')
-);
+)

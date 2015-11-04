@@ -1,7 +1,7 @@
 // leemos los datos desde el archivo package.json
 let packagejson = require("../package.json")
-export const __APP_NAME__= JSON.stringify(packagejson.name)
-export const __VERSION__ = JSON.stringify('v'+packagejson.version)
+export const __APP_NAME__= `"${packagejson.name}"`
+export const __VERSION__ = `"v${packagejson.version}"`
 const NODE_ENV = process.env.NODE_ENV
 // verificamos que las variables globales sean validas
 export const environment = (NODE_ENV==='production' || NODE_ENV==='testing')? NODE_ENV: 'development'

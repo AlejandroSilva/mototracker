@@ -10,7 +10,6 @@ module.exports = {
         path:     path.join(__dirname, 'public'),
         filename: 'bundle.js'
     },
-
     module: {
         loaders: [
             //{test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot','babel'] }
@@ -21,8 +20,8 @@ module.exports = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.DefinePlugin({
-            WEBPACK_VERSION: JSON.stringify('v'+packagejson.version),
-            WEBPACK_NAME: JSON.stringify(packagejson.name),
+            WEBPACK_VERSION: `"v${packagejson.version}"`,
+            WEBPACK_NAME: `"${packagejson.name}"`,
             WEBPACK_IS_DEVELOPMENT: false,
             WEBPACK_IS_PRODUCTION:  true,
             WEBPACK_IS_TESTING:     false
