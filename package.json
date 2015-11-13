@@ -2,6 +2,10 @@
   "name": "MotoTracker",
   "version": "1.6.0",
   "description": "sistema de rastreo por gps para proyecto de titulo",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/AlejandroSilva/mototracker.git"
+  },
   "main": "server.js",
   "scripts": {
     "webpack-prod": "NODE_ENV=production webpack --config webpack.config.prod.js",

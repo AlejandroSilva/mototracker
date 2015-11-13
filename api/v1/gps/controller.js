@@ -6,4 +6,5 @@ export function saveGPS(req, res){
         gpsID: req.gpsID,
         body: req.body
     })
+    res.send('ok')
 }
