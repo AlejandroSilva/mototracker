@@ -58,6 +58,15 @@ app.get('/*', function (req, res) {
                     <link type="text/css" rel="stylesheet" href="/adminlte/css/skins/skin-blue.min.css">
                     <!-- Font-awesome -->
                     <link type="text/css" rel="stylesheet" href="/font-awesome/font-awesome.min.css">
+                    <!-- Leaflet-->
+                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+                    <style>
+                        .leaflet-container {
+                            height: 400px;
+                            width: 80%;
+                            margin: 0 auto;
+                        }
+                    </style>
                     <script>
                         // window.__INITIAL_STATE__ = ${"JSON.stringify(initialState)"};
                     </script>

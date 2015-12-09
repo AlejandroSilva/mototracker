@@ -4,7 +4,9 @@ import Server from '../../../db/Server.js'
 export function saveGPS(req, res){
     console.log({
         gpsID: req.gpsID,
-        body: req.body
+        body: req.body,
+        params: req.params
+
     })
     res.send('ok')
 }
