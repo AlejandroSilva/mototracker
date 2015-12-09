@@ -18,7 +18,7 @@ import {
     ServerEvents,
     NotFound
 } from './components/index.js'
-import MapExample from './components/MapExample.jsx'
+//import MapExample from './components/MapExample.jsx'
 
 // Store
 import configureStore from './store/configureStore.js'
@@ -51,7 +51,7 @@ class Root extends React.Component {
                                 <Route path="edit"   component={ EditServer } />
                                 <Route path="events" component={ ServerEvents }/>
                             </Route>
-                            <Route path="map" component={ MapExample } />
+                            {/*<Route path="map" component={ MapExample } />*/}
                             <Route path="*" component={ NotFound }></Route>
                         </Route>
                     </ReduxRouter>

@@ -1,3 +1,4 @@
+/*
 import { Map, Marker, Popup, Rectangle, TileLayer } from 'react-leaflet'
 import React, { Component } from 'react'
 //import { render } from 'react-dom'
@@ -49,3 +50,4 @@ export default class BoundsExample extends Component {
         );
     }
 }
+    */
