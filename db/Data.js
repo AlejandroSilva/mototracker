@@ -1,6 +1,6 @@
 import Thinky from 'thinky'
 import { dbConfig } from '../config/index.js'
-import Server from './Server.js'
+import Server from './Car.js'
 let thinky = Thinky(dbConfig)
 let type = thinky.type
 let r = thinky.r

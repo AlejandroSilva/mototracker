@@ -1,7 +1,7 @@
 import Alert from './Alert.jsx'
 import ErrorPage from './ErrorPage.jsx'
 import FormGroup from './FormGroup.jsx'
-import ServerForm from './ServerForm.jsx'
+import CarForm from './CarForm.jsx'
 
 import Box from './Box.jsx'
 import BoxBody from './BoxBody.jsx'
@@ -11,7 +11,7 @@ export {
     Alert,
     ErrorPage,
     FormGroup,
-    ServerForm,
+    CarForm,
     Box,
     BoxHeader,
     BoxBody

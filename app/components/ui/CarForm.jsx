@@ -5,7 +5,7 @@ import React, { PropTypes} from 'react'
 import Alert from './Alert.jsx'
 import FormGroup from './FormGroup.jsx'
 
-class ServerForm extends React.Component{
+class CarForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -69,7 +69,7 @@ class ServerForm extends React.Component{
         return (
             <div className="box box-info">
                 <div className="box-header with-border">
-                    <h3 className="box-title">{this.state.server.id? 'Actualizar datos' : 'Agregar Servidor'}</h3>
+                    <h3 className="box-title">{this.state.server.id? 'Actualizar datos' : 'Agregar vehiculo'}</h3>
                 </div>
                 <form className="form-horizontal" onSubmit={this.sendForm.bind(this)}>
                     <div className="box-body">
@@ -132,13 +132,13 @@ class ServerForm extends React.Component{
         )
     }
 }
-ServerForm.propTypes = {
+CarForm.propTypes = {
     updateServer: PropTypes.func.isRequired,
     addServer: PropTypes.func.isRequired,
     deleteServer: PropTypes.func.isRequired,
     theServer: PropTypes.object.isRequired
 }
-ServerForm.defaultProps = {
+CarForm.defaultProps = {
     theServer: {
         id: '',
         name: '',
@@ -148,4 +148,4 @@ ServerForm.defaultProps = {
     }
 }
 
-export default ServerForm
+export default CarForm

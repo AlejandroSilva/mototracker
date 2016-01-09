@@ -1,26 +1,28 @@
 import App from './App.jsx'
-import ServersList from './ServersList.jsx'
-import ServersView from './ServersView.jsx'
-import ServerContainer from './ServerContainer.jsx'
-import ServerData from './ServerData.jsx'
-import ServerDataAsRow from './ServerDataAsRow.jsx'
-import ServerEvents from './ServerEvents.jsx'
+import MenuCars from './MenuCars.jsx'
+import MenuEvents from './MenuEvents.jsx'
+import MenuInform from './MenuInform.jsx'
+import FleetMapView from './FleetMapView.jsx'
+import CarContainer from './CarContainer.jsx'
+import CarData from './CarData.jsx'
+import CarEvents from './CarEvents.jsx'
 
-// Creacion y modificacion de un servidor:
-import AddServer from './AddServer.jsx'
-import EditServer from './EditServer.jsx'
+// Creacion y modificacion de un vehiculo:
+import AddCar from './AddCar.jsx'
+import EditCar from './CarServer.jsx'
 import NotFound from './NotFound.jsx'
 
 export {
     App,
-    ServersList,
-    ServersView,
-    ServerContainer,
-    ServerData,
-    ServerDataAsRow,
-    ServerEvents,
+    MenuCars,
+    MenuEvents,
+    MenuInform,
+    FleetMapView,
+    CarContainer,
+    CarData,
+    CarEvents,
     // Creacion y modificacion de un servidor
-    AddServer,
-    EditServer,
+    AddCar,
+    EditCar,
     NotFound,
 }

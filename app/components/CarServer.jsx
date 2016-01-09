@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import * as ServersActions from '../actions/serversActions.js'
 
 // Components
-import { ServerForm } from './ui/index.js'
+import { CarForm } from './ui/index.js'
 
 @connect(
     (state)=> ({
@@ -22,15 +22,15 @@ import { ServerForm } from './ui/index.js'
         )
     }
 )
-class EditServer extends React.Component {
+class CarServer extends React.Component {
     render() {
         return (
             <div className="box box-info">
                 <div className="box-header with-border">
                     <h3 className="box-title">Actualizar datos del servidor</h3>
                 </div>
-                {/*Si a ServerForm, se le entrega un servidor, este generara un formulario para editarlo*/}
-                <ServerForm
+                {/*Si a CarForm, se le entregan datos , este generara un formulario para editarlo*/}
+                <CarForm
                     updateServer={this.props.updateServer}
                     addServer={this.props.addServer}
                     deleteServer={this.props.deleteServer}
@@ -41,7 +41,7 @@ class EditServer extends React.Component {
         )
     }
 }
-//EditServer.propTypes = {
+//EditCar.propTypes = {
 //    theServer: PropTypes.object.isRequired
 //}
-export default EditServer
+export default CarServer

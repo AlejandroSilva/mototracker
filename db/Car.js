@@ -5,7 +5,7 @@ let type = thinky.type
 let r = thinky.r
 // https://thinky.io/documentation/schemas/
 
-let Server = thinky.createModel('Server', {
+let Car = thinky.createModel('Car', {
     id: type.string(),
     name: type.string().required(),
     project: type.string().required(),
@@ -21,11 +21,11 @@ let Server = thinky.createModel('Server', {
     enforce_type: 'strict',     // los campos deben ser del mismo tipo que esta declarado
     validator: function(){}
 })
-Server.ensureIndex('id')
-Server.pre('save', function(next){
+Car.ensureIndex('id')
+Car.pre('save', function(next){
     // al guardar, actualizar la fecha
     this.updatedAt = r.now()
     next()
 })
 
-export default Server
+export default Car

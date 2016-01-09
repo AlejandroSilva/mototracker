@@ -7,12 +7,11 @@ import { connect } from 'react-redux'
 import * as ServersActions from '../actions/serversActions.js'
 
 // Modules
-import { ServerDataAsRow } from './index.js'
 
 @connect(
     (state)=> ({
         routerState: state.router,
-        servers: state.servers,
+        servers: state.servers
     }),
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
@@ -26,9 +25,9 @@ class ServersView extends React.Component {
     render() {
         return (
             <section className="content">
-                <h3>list of servers</h3>
+                <h3>mapa con todos los vehiculos</h3>
             </section>
-        );
+        )
     }
 }
 ServersView.propTypes = {

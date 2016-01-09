@@ -9,7 +9,11 @@ import * as CounterActions from '../actions/counterActions.js'
 import * as ServersActions from '../actions/serversActions.js'
 
 // Components
-import { ServersList } from './index.js'
+import {
+    MenuCars,
+    MenuEvents,
+    MenuInform
+} from './index.js'
 
 @connect(
     (state)=> ({
@@ -27,10 +31,6 @@ import { ServersList } from './index.js'
     }
 )
 class App extends React.Component {
-    static propTypes = {
-        children: React.PropTypes.node,
-        servers: React.PropTypes.object
-    }
     componentDidMount(){
         // Obtener la lista de servidores
         this.props.getServers(()=>{})
@@ -66,27 +66,17 @@ class App extends React.Component {
                     <aside className="main-sidebar">
                         <section className="sidebar">
                             <ul className="sidebar-menu">
+                                {/*<li className="header">Vehiculos</li>*/}
 
-                                <li className="header">SERVIDORES</li>
+                                {/* Lista de vehiculos */}
+                                <MenuCars servers={this.props.servers.list}/>
 
-                                <li className="treeview active">
-                                    <a href="#">
-                                        <i className="fa fa-calendar"></i> <span>Menu</span>
-                                        <small className="label pull-right bg-red">3</small>
-                                    </a>
-                                    <ul className="treeview-menu">
-                                        <li><a href="#">item1</a></li>
-                                        <li><a href="#">item2</a></li>
-                                    </ul>
-                                </li>
+                                {/* Lista de Alertas */}
+                                <MenuEvents />
 
-                                <ServersList className="treeview active" servers={this.props.servers.list}/>
-
-                                <button type="button" className="btn btn-info">Action</button>
-                                <i className="fa fa-cogs">XXX</i>
-
+                                {/* Informes */}
+                                <MenuInform />
                             </ul>
-                            <button onClick={ this.props.create }>App.CREATE_SERVER</button>
                         </section>
                     </aside>
 
@@ -98,5 +88,8 @@ class App extends React.Component {
         )
     }
 }
-
+App.propTypes = {
+    children: React.PropTypes.node,
+    servers: React.PropTypes.object
+}
 export default App

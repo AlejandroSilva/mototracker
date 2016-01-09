@@ -1,4 +1,4 @@
-import Server from '../../../db/Server.js'
+import Server from '../../../db/Car.js'
 
 // GET /v1/server/
 export function getAllServers(req, res){

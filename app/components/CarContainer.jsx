@@ -52,17 +52,17 @@ class ServerContainer extends React.Component {
                             </h1>
                             <ul className="nav nav-tabs">
                                 <li className={activePath==='data'? 'active':''}>
-                                    <Link to={`/server/${this.props.params.id}/data`} data-toggle="tab">
+                                    <Link to={`/car/${this.props.params.id}/data`} data-toggle="tab">
                                         Datos
                                     </Link>
                                 </li>
                                 <li className={activePath==='edit'? 'active':''}>
-                                    <Link to={`/server/${this.props.params.id}/edit`} data-toggle="tab">
+                                    <Link to={`/car/${this.props.params.id}/edit`} data-toggle="tab">
                                         Configuración
                                     </Link>
                                 </li>
                                 <li className={activePath==='events'? 'active':''}>
-                                    <Link to={`/server/${this.props.params.id}/events`} data-toggle="tab">
+                                    <Link to={`/car/${this.props.params.id}/events`} data-toggle="tab">
                                         Eventos del servidor
                                     </Link>
                                 </li>

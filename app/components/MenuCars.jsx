@@ -2,32 +2,32 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-class ServersList extends React.Component {
+class MenuCars extends React.Component {
     render() {
         return (
             <li className="treeview active">
                 <a href="#">
-                    <i className="fa fa-calendar"></i> <span>Servidores</span>
+                    <i className="fa fa-calendar"></i> <span>Vehiculos</span>
                     <small className="label pull-right bg-red">3</small>
                 </a>
                 <ul className="treeview-menu">
-                    <li key='0' ><Link to={'/servers'}>
+                    <li key='0' ><Link to={'/fleet'}>
                         <i className="fa fa-circle-o text-yellow"></i>
-                        Todos
+                        Ver todos
                     </Link></li>
                     {this.props.servers.map((server, index)=> {
                         return (
                             <li key={server.id}>
-                                <Link to={`/server/${server.id}/data`}>
+                                <Link to={`/car/${server.id}/data`}>
                                     <i className="fa fa-circle-o"></i>
                                     {server.name}
                                 </Link>
                             </li>
                         )
                      })}
-                    <li key='100' ><Link to={'/server/estaidnoexiste/data'}>
+                    <li key='100' ><Link to={'/car/estaidnoexiste/data'}>
                         <i className="fa fa-circle-o"></i>
-                        servidor asfasdf (no existe en BD)
+                        AB-12-34(no existe en BD)
                     </Link></li>
 
                     <li key='999' ><Link to={'/add'}>
@@ -36,7 +36,7 @@ class ServersList extends React.Component {
                     </Link></li>
                 </ul>
             </li>
-        );
+        )
     }
 }
-export default ServersList
+export default MenuCars

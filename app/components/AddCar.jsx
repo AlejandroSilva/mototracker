@@ -9,7 +9,7 @@ import * as ServersActions from '../actions/serversActions.js'
 
 // Components
 import {
-    ServerForm
+    CarForm
 } from './ui/index.js'
 
 @connect(
@@ -24,11 +24,11 @@ import {
         )
     }
 )
-class AddServer extends React.Component {
+class AddCar extends React.Component {
     render() {
-        // Si a ServerForm, se le entrega un servidor, este generara un formulario para editarlo
+        // Si a CarForm, se le entregan los datos de un vehiculo, este generara un formulario para editarlo
         return (
-            <ServerForm
+            <CarForm
                 updateServer={this.props.updateServer}
                 addServer={this.props.addServer}
                 deleteServer={this.props.deleteServer}
@@ -38,7 +38,7 @@ class AddServer extends React.Component {
         )
     }
 }
-//AddServer.propTypes = {
+//AddCar.propTypes = {
 //    theServer: PropTypes.object.isRequired
 //}
-export default AddServer
+export default AddCar
