@@ -17,7 +17,8 @@ import createHistory from 'history/lib/createBrowserHistory'
 // Reducers
 import { combinedReducers, combinedInitialStates } from '../reducers/combinedReducers.js'
 
-export default function configureStore(initialState){
+//export default function configureStore(initialState){
+module.exports = function(initialState){
     // la store de desarrollo, incluye 'devTools' y puede hacer hot-reload de los reducers
     let store = compose(
         applyMiddleware(thunk),

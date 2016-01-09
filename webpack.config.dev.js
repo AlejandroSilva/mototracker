@@ -16,15 +16,11 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: 'http://localhost:3001/'
     },
-    //resolve: {
-    //    modulesDirectories: ['node_modules', 'shared'],
-    //    extensions:         ['', '.js', '.jsx']
-    //},
     module: {
         loaders: [
-            //{test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot','babel'] }
-            {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'react-hot' },
-            {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'babel', query: {stage: 0} }
+            // no incluye presets ni plugins
+            {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'react-hot'},
+            {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'babel'}
         ]
     },
     plugins: [

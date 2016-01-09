@@ -14,7 +14,8 @@ import createHistory from 'history/lib/createBrowserHistory'
 // Reducers
 import { combinedReducers, combinedInitialStates } from '../reducers/combinedReducers.js'
 
-export default function configureStore(initialState){
+//export default function configureStore(initialState){
+module.exports = function(initialState){
     // store de produccion
     let store = compose(
         applyMiddleware(thunk),
