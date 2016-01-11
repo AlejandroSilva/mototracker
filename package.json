@@ -1,6 +1,6 @@
 {
   "name": "MotoTracker",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "sistema de rastreo por gps para proyecto de titulo",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "main": "server.js",
   "scripts": {
-    "webpack-prod": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "webpack-prod": "NODE_ENV=production ./node_modules/webpack --config webpack.config.prod.js",
     "babel-dev": "NODE_ENV=development babel-node server.js --source-maps --lo glevel error",
     "babel-prod": "NODE_ENV=production babel-node server.js --source-maps",
     "babel-test": "NODE_ENV=testing ./node_modules/.bin/mocha --compilers js:babel/register --timeout 8000 test/v1.js ",
