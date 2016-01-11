@@ -1,4 +1,4 @@
-import * as serverAction from '../actions/serversActions.js';
+import * as serverAction from '../actions/serversActions.js'
 
 let defaultState = {
     list: []
@@ -53,6 +53,6 @@ export let serversReducer = (state=defaultState, action={})=>{
         break
 
         default:
-            return state;
+            return state
     }
 }

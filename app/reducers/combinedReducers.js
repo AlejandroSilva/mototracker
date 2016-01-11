@@ -11,7 +11,7 @@ const combinedReducers = combineReducers({
     counter: counterReducer,
     servers: serversReducer,
     router: routerStateReducer
-});
+})
 
 const combinedInitialStates = {
     counter: 33,

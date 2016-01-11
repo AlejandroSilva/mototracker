@@ -34,6 +34,7 @@ class App extends React.Component {
     componentDidMount(){
         // Obtener la lista de servidores
         this.props.getServers(()=>{})
+        console.log(this.props)
     }
     render() {
         return (

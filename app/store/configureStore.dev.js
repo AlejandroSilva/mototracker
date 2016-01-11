@@ -5,10 +5,10 @@
 
 // Redux
 import { compose, createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'
 
 // Redux devTools
-import DevTools from '../components/ui/DevTools.jsx';
+import DevTools from '../components/ui/DevTools.jsx'
 
 // Router
 import { reduxReactRouter } from 'redux-router'
@@ -33,9 +33,9 @@ module.exports = function(initialState){
         console.log("actualizando reducer")
         // Enable Webpack hot module replacement for reducers
         module.hot.accept('../reducers/combinedReducers.js', () => {
-            let nextRootReducer = require('../reducers/combinedReducers.js').combinedReducers;
-            store.replaceReducer(nextRootReducer);
-        });
+            let nextRootReducer = require('../reducers/combinedReducers.js').combinedReducers
+            store.replaceReducer(nextRootReducer)
+        })
     }
     return store
 }
