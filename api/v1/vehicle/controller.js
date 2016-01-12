@@ -41,7 +41,7 @@ export const updateVehicle = (req, res)=>{
     req.vehicle.licenceID = req.body.licenceID
     req.vehicle.model = req.body.model
     req.vehicle.maker = req.body.maker
-    req.vehicle.gpsID = req.body.gpsID
+    req.vehicle.gpsId = req.body.gpsId
     req.vehicle.save()
         .then(function(result) {
             res.status(200).json(result)

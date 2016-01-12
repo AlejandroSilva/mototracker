@@ -16,7 +16,7 @@ class VehicleForm extends React.Component{
                 licenceId: this.props.theVehicle.licenceId,
                 model: this.props.theVehicle.model,
                 maker: this.props.theVehicle.maker,
-                gpsID: this.props.theVehicle.gpsID
+                gpsId: this.props.theVehicle.gpsId
             }
         }
     }
@@ -113,8 +113,8 @@ class VehicleForm extends React.Component{
                         </FormGroup>
                         <FormGroup label="Identificador del GPS">
                             <input type="text" className="form-control"
-                                   defaultValue={this.state.vehicle.gpsID}
-                                   onChange={this.handleChange.bind(this, 'gpsID')}
+                                   defaultValue={this.state.vehicle.gpsId}
+                                   onChange={this.handleChange.bind(this, 'gpsId')}
                                    placeholder="Identificador unico. Ej. 131313"
                                    required
                             />
@@ -154,7 +154,7 @@ VehicleForm.defaultProps = {
         licenceId: '',
         model: '',
         maker: '',
-        gpsID: ''
+        gpsId: ''
     }
 }
 
