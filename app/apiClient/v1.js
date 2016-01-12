@@ -19,27 +19,27 @@ axios.interceptors.response.use((response)=>{
     }
 })
 
-export let server = {
+export let vehicle = {
     getAll: ()=>{
-        return axios.get(`/v1/server`)
+        return axios.get(`/v1/vehicle`)
     },
-    update: (server)=>{
+    update: (vehicle)=>{
         return axios.put(
-            `/v1/server/${server.id}`,
-            server
+            `/v1/vehicle/${vehicle.id}`,
+            vehicle
         )
     },
-    create: (server)=>{
+    create: (vehicle)=>{
         // convert 'port' from number to string
-        server.port = ''+server.port
+        vehicle.port = ''+vehicle.port
         return axios.post(
-            `/v1/server/`,
-            server
+            `/v1/vehicle/`,
+            vehicle
         )
     },
-    delete: (serverID)=>{
+    delete: (vehicleID)=>{
         return axios.delete(
-            `/v1/server/${serverID}`
+            `/v1/vehicle/${vehicleID}`
         )
     }
 }

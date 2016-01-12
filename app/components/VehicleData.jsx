@@ -4,13 +4,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
-class ServerData extends React.Component {
+class VehicleData extends React.Component {
     render() {
         let content
-        if(!this.props.theServer.name){
-            content = "[servidor no existe]"
+        if(!this.props.theVehicle.name){
+            content = "[el vehiculo no existe]"
 
-        }else if(this.props.theServer.currentData){
+        }else if(this.props.theVehicle.currentData){
             content = <h3>some content goes here</h3>
 
         }else{
@@ -24,4 +24,4 @@ class ServerData extends React.Component {
         )
     }
 }
-export default ServerData
+export default VehicleData

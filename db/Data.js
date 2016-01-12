@@ -1,6 +1,6 @@
 import Thinky from 'thinky'
 import { dbConfig } from '../config/index.js'
-import Server from './Car.js'
+import Vehicle from './Vehicle.js'
 let thinky = Thinky(dbConfig)
 let type = thinky.type
 let r = thinky.r
@@ -9,7 +9,7 @@ let r = thinky.r
 
 let Data = thinky.createModel('Data', {
     id: type.string(),
-    idServer: type.string().required(),
+    idVehicle: type.string().required(),
     component: type.string().required(),
     content: type.any().required(), // puede ser un objeto o un arreglo de objetos
     createdAt: type.date().default(r.now())
@@ -21,6 +21,6 @@ let Data = thinky.createModel('Data', {
 })
 Data.ensureIndex('id')
 
-Data.belongsTo(Server, 'server', 'idServer', 'id')
+Data.belongsTo(Vehicle, 'vehicle', 'idVehicle', 'id')
 
 export default Data

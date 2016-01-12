@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 // Actions
-import * as ServersActions from '../actions/serversActions.js'
+import * as VehicleActions from '../actions/vehicleActions.js'
 
 // Modules
 import {
@@ -15,25 +15,25 @@ import {
 @connect(
     (state)=> ({
         routerState: state.router,
-        servers: state.servers
+        vehicles: state.vehicles
     }),
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
         return bindActionCreators(
-            ServersActions,
+            VehicleActions,
             dispatch
         )
     }
 )
-class ServerContainer extends React.Component {
+class VechicleContainer extends React.Component {
     render() {
-        // busca el servidor con el id que nos interesa
-        let theServer = this.props.servers.list.find((server)=>this.props.params.id===server.id) || {}
-        if(!theServer.name) {
+        // busca el vehiculo con el id que nos interesa
+        let theVehicle = this.props.vehicles.list.find((vehicle)=>this.props.params.id===vehicle.id) || {}
+        if(!theVehicle.name) {
             return <ErrorPage
                 code={404}
-                title="Servidor no encontrado"
-                message="El servidor que busca no ha sido encontrado. Esto se puede deber a que el ID no sea el correcto, o que haya sido eliminado."
+                title="Vehiculo no encontrado"
+                message="El vehiculo que busca no ha sido encontrado. Esto se puede deber a que el ID no sea el correcto, o que haya sido eliminado."
                 />
         }
         //console.log(this.props)
@@ -47,23 +47,23 @@ class ServerContainer extends React.Component {
                     <div className="row">
                         <div className="nav-tabs-custom col-12-md">
                             <h1>
-                                <b>{theServer.name}</b> ({theServer.host})
-                                <small> {theServer.project}</small>
+                                <b>{theVehicle.name}</b> (patente: {theVehicle.licenceID})
+                                <small> {theVehicle.project}</small>
                             </h1>
                             <ul className="nav nav-tabs">
                                 <li className={activePath==='data'? 'active':''}>
-                                    <Link to={`/car/${this.props.params.id}/data`} data-toggle="tab">
+                                    <Link to={`/vehicle/${this.props.params.id}/data`} data-toggle="tab">
                                         Datos
                                     </Link>
                                 </li>
                                 <li className={activePath==='edit'? 'active':''}>
-                                    <Link to={`/car/${this.props.params.id}/edit`} data-toggle="tab">
+                                    <Link to={`/vehicle/${this.props.params.id}/edit`} data-toggle="tab">
                                         Configuración
                                     </Link>
                                 </li>
                                 <li className={activePath==='events'? 'active':''}>
-                                    <Link to={`/car/${this.props.params.id}/events`} data-toggle="tab">
-                                        Eventos del servidor
+                                    <Link to={`/vehicle/${this.props.params.id}/events`} data-toggle="tab">
+                                        Eventos del vehiculo
                                     </Link>
                                 </li>
                             </ul>
@@ -71,7 +71,7 @@ class ServerContainer extends React.Component {
                             <div className="tab-content">
                                 {(
                                     this.props.children && React.cloneElement(this.props.children, {
-                                        theServer
+                                        theVehicle
                                     })
                                 )|| <h3>Seleccione una opcion</h3>}
                             </div>
@@ -80,7 +80,7 @@ class ServerContainer extends React.Component {
                     </div>
                 </section>
             </div>
-        );
+        )
     }
 }
-export default ServerContainer
+export default VechicleContainer

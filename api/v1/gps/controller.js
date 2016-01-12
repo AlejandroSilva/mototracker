@@ -1,4 +1,4 @@
-import Server from '../../../db/Car.js'
+import Server from '../../../db/Vehicle.js'
 
 // POST /v1/gps/:gpsID
 export function saveGPS(req, res){

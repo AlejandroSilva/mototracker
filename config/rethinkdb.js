@@ -1,17 +1,17 @@
 export const development = {
     host: 'localhost',
     port: 28015,
-    db: 'health_dev'
+    db: 'motolocator_dev'
 }
 
 export const production = {
     host: 'localhost',
     port: 28015,
-    db: 'health'
+    db: 'motolocator'
 }
 
 export const test = {
     host: 'localhost',
     port: 28015,
-    db: 'health_test'
+    db: 'motolocator_test'
 }

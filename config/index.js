@@ -22,7 +22,7 @@ if(__IS_PRODUCTION__) {
     new Error("Ningun ambiente de desarrollo especificado")
 }
 
-console.log(`Health Server ${appConfig.version}`);
+console.log(`Health Server ${appConfig.version}`)
 console.log(`Configuración '${environment}' cargada.`)
 
 export {

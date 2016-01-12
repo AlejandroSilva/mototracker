@@ -6,7 +6,12 @@ import { Link } from 'react-router'
 
 // Actions
 import * as CounterActions from '../actions/counterActions.js'
-import * as ServersActions from '../actions/serversActions.js'
+import * as vehicleActions from '../actions/vehicleActions.js'
+
+// Socket IO
+import { appConfig } from '../../config/index.js'
+import io from 'socket.io-client'
+let socket = io.connect(`http://localhost:${appConfig.port}`)
 
 // Components
 import {
@@ -18,23 +23,39 @@ import {
 @connect(
     (state)=> ({
         routerState: state.router,
-        servers: state.servers
+        vehicles: state.vehicles
     }),
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
         return bindActionCreators(
             //CounterActions: CounterActions,
-            //ServersActions: ServersActions
-            Object.assign({}, CounterActions, ServersActions),
+            //vehicleActions: vehicleActions
+            Object.assign({}, CounterActions, vehicleActions),
             dispatch
         )
     }
 )
 class App extends React.Component {
     componentDidMount(){
-        // Obtener la lista de servidores
-        this.props.getServers(()=>{})
+        // Obtener la lista de vehiculos
+        this.props.getVehicles(()=>{})
         console.log(this.props)
+
+        //Cambios en los vehiculos
+        //realizar la conexion por sockets para recibir los cambios
+        socket.on('vehicleCreated', vehicle=>{
+            console.log("vehicle created:", vehicle)
+            this.props.addVehicleFromSocket(vehicle)
+        })
+        socket.on('vehicleUpdated', vehicle=>{
+            console.log("vehicle updated: ", vehicle.updatedAt)
+            this.props.updateVehicleFromSocket(vehicle)
+        })
+        socket.on('vehicleDeleted', vehicle=>{
+            console.log("vehicle deleted: ", vehicle)
+            this.props.deleteVehicleFromSocket(vehicle.id)
+        })
+
     }
     render() {
         return (
@@ -70,7 +91,7 @@ class App extends React.Component {
                                 {/*<li className="header">Vehiculos</li>*/}
 
                                 {/* Lista de vehiculos */}
-                                <MenuCars servers={this.props.servers.list}/>
+                                <MenuCars vehicles={this.props.vehicles.list}/>
 
                                 {/* Lista de Alertas */}
                                 <MenuEvents />
@@ -83,7 +104,7 @@ class App extends React.Component {
 
                     {/* Cuerpo de la pagina */}
                     <div className="content-wrapper" style={{minHeight: 1000+'px', maxWidth: 1000+'px'}}>
-                        {this.props.children || "Seleccione un servidor desde el menu lateral"}
+                        {this.props.children || "Seleccione un vehiculo desde el menu lateral"}
                     </div>
                 </div>
         )
@@ -91,6 +112,6 @@ class App extends React.Component {
 }
 App.propTypes = {
     children: React.PropTypes.node,
-    servers: React.PropTypes.object
+    vehicles: React.PropTypes.object
 }
 export default App

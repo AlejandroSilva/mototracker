@@ -1,6 +1,6 @@
 // React
 import React from 'react'
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 
 // Router
 import { Provider, connect } from 'react-redux'
@@ -11,11 +11,11 @@ import { ReduxRouter } from 'redux-router'
 import {
     App,
     FleetMapView,
-    CarContainer,
-    CarData,
-    EditCar,
-    AddCar,
-    CarEvents,
+    VehicleContainer,
+    VehicleData,
+    EditVehicle,
+    AddVehicle,
+    VehicleEvents,
     NotFound
 } from './components/index.js'
 //import MapExample from './components/MapExample.jsx'
@@ -43,14 +43,14 @@ class Root extends React.Component {
                     <ReduxRouter>
                         <Route path="/" component={ App }>
                             <Route path="fleet" component={ FleetMapView } />
-                            <Route path="car/:id" component={ CarContainer }>
+                            <Route path="vehicle/:id" component={ VehicleContainer }>
                                 {/*<IndexRoute component={ ServerData }/>*/}
 
-                                <Route path="data"   component={ CarData } />
-                                <Route path="edit"   component={ EditCar } />
-                                <Route path="events" component={ CarEvents }/>
+                                <Route path="data"   component={ VehicleData } />
+                                <Route path="edit"   component={ EditVehicle } />
+                                <Route path="events" component={ VehicleEvents }/>
                             </Route>
-                            <Route path="add" component={ AddCar } />
+                            <Route path="add" component={ AddVehicle } />
                             {/*<Route path="map" component={ MapExample } />*/}
                             <Route path="*" component={ NotFound }></Route>
                         </Route>

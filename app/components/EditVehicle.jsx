@@ -5,10 +5,10 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 // Actions
-import * as ServersActions from '../actions/serversActions.js'
+import * as vehicleActions from '../actions/vehicleActions.js'
 
 // Components
-import { CarForm } from './ui/index.js'
+import { VehicleForm } from './ui/index.js'
 
 @connect(
     (state)=> ({
@@ -17,31 +17,32 @@ import { CarForm } from './ui/index.js'
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
         return bindActionCreators(
-            ServersActions,
+            vehicleActions,
             dispatch
         )
     }
 )
 class CarServer extends React.Component {
     render() {
+        console.log(this.props)
         return (
             <div className="box box-info">
                 <div className="box-header with-border">
                     <h3 className="box-title">Actualizar datos del servidor</h3>
                 </div>
-                {/*Si a CarForm, se le entregan datos , este generara un formulario para editarlo*/}
-                <CarForm
-                    updateServer={this.props.updateServer}
-                    addServer={this.props.addServer}
-                    deleteServer={this.props.deleteServer}
+                {/*Si a VehicleForm, se le entregan datos , este generara un formulario para editarlo*/}
+                <VehicleForm
+                    updateVehicle={this.props.updateVehicle}
+                    addVehicle={this.props.addVehicle}
+                    deleteVehicle={this.props.deleteVehicle}
                     pushState={this.props.history.pushState}
-                    theServer={this.props.theServer}
+                    theVehicle={this.props.theVehicle}
                 />
             </div>
         )
     }
 }
-//EditCar.propTypes = {
-//    theServer: PropTypes.object.isRequired
+//EditVehicle.propTypes = {
+//    theVehicle: PropTypes.object.isRequired
 //}
 export default CarServer

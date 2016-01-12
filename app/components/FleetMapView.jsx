@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 // Actions
-import * as ServersActions from '../actions/serversActions.js'
+import * as vehicleActions from '../actions/vehicleActions.js'
 
 // Modules
 
@@ -16,12 +16,12 @@ import * as ServersActions from '../actions/serversActions.js'
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
         return bindActionCreators(
-            ServersActions,
+            vehicleActions,
             dispatch
         )
     }
 )
-class ServersView extends React.Component {
+class FleetMapView extends React.Component {
     render() {
         return (
             <section className="content">
@@ -30,7 +30,7 @@ class ServersView extends React.Component {
         )
     }
 }
-ServersView.propTypes = {
+FleetMapView.propTypes = {
     children: React.PropTypes.node
 }
-export default ServersView
+export default FleetMapView

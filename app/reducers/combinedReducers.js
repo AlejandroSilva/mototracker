@@ -4,18 +4,18 @@ import { routerStateReducer } from 'redux-router'
 
 // Reducers
 import counterReducer from './counterReducer'
-import { serversReducer, serversDefaultState } from './serversReducer.js'
+import { vehicleReducer, vehicleDefaultState } from './vehicleReducer.js'
 
 
 const combinedReducers = combineReducers({
     counter: counterReducer,
-    servers: serversReducer,
+    vehicles: vehicleReducer,
     router: routerStateReducer
 })
 
 const combinedInitialStates = {
     counter: 33,
-    servers: serversDefaultState
+    vehicles: vehicleDefaultState
 }
 
 export { combinedReducers , combinedInitialStates }

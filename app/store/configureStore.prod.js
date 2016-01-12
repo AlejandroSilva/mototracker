@@ -5,7 +5,7 @@
 
 // Redux
 import { compose, createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'
 
 // Router
 import { reduxReactRouter } from 'redux-router'

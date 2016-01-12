@@ -15,17 +15,17 @@ class MenuCars extends React.Component {
                         <i className="fa fa-circle-o text-yellow"></i>
                         Ver todos
                     </Link></li>
-                    {this.props.servers.map((server, index)=> {
+                    {this.props.vehicles.map((vehicle, index)=> {
                         return (
-                            <li key={server.id}>
-                                <Link to={`/car/${server.id}/data`}>
+                            <li key={vehicle.id}>
+                                <Link to={`/vehicle/${vehicle.id}/data`}>
                                     <i className="fa fa-circle-o"></i>
-                                    {server.name}
+                                    {vehicle.name}
                                 </Link>
                             </li>
                         )
                      })}
-                    <li key='100' ><Link to={'/car/estaidnoexiste/data'}>
+                    <li key='100' ><Link to={'/vehicle/estaidnoexiste/data'}>
                         <i className="fa fa-circle-o"></i>
                         AB-12-34(no existe en BD)
                     </Link></li>

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 // Actions
-import * as ServersActions from '../actions/serversActions.js'
+import * as vehicleActions from '../actions/vehicleActions.js'
 
 @connect(
     (state)=> ({
@@ -14,7 +14,7 @@ import * as ServersActions from '../actions/serversActions.js'
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
         return bindActionCreators(
-            ServersActions,
+            vehicleActions,
             dispatch
         )
     }

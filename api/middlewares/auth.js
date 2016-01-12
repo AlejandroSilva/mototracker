@@ -5,10 +5,10 @@ export function isAuthenticated(req, res, next){
         // seteamos el usuario y seguimos
         req.user = {
             username: 'admin'
-        };
-        next();
+        }
+        next()
     }else{
         // mostrar error
-        res.status(401).send('Debe logearse primero (en el header falta token=12345)');
+        res.status(401).send('Debe logearse primero (en el header falta token=12345)')
     }
 }

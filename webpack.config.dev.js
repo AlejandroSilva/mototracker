@@ -19,6 +19,7 @@ module.exports = {
     module: {
         loaders: [
             // no incluye presets ni plugins
+            {test: /\.json$/, exclude: [/node_modules/, /public/], loader: 'json-loader'},
             {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'react-hot'},
             {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'babel'}
         ]
@@ -42,4 +43,4 @@ module.exports = {
     //        '*': 'http://localhost:' + 8888
     //    }
     //}
-};
+}

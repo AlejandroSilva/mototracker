@@ -4,8 +4,8 @@ let router = express.Router()
 /*
  * Sub Routes
  */
-import server from './server'
-router.use('/server', server)
+import vehicle from './vehicle'
+router.use('/vehicle', vehicle)
 
 import gps from './gps'
 router.use('/gps', gps)

@@ -13,6 +13,7 @@ module.exports = {
     module: {
         loaders: [
             //{test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot','babel'] }
+            {test: /\.json$/, exclude: [/node_modules/, /public/], loader: 'json-loader'},
             {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'react-hot' },
             {test: /\.jsx?$/, exclude: [/node_modules/, /public/], loader: 'babel' }
         ]
