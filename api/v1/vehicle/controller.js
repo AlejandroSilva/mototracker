@@ -1,7 +1,7 @@
 import Vehicle from '../../../db/Vehicle.js'
 
 // GET /v1/vehicle/
-export function getAllVehicles(req, res){
+export const getAllVehicles = (req, res)=>{
     Vehicle.run()
         .then((vehicles)=>{
             res.json(vehicles)
@@ -14,7 +14,7 @@ export function getAllVehicles(req, res){
 }
 
 // POST /v1/vehicle/
-export function createVehicle(req, res){
+export const createVehicle = (req, res)=>{
     let newVehicle = new Vehicle(req.body)
     // un usuario no puede agregar el id manualmente
     delete newVehicle.id
@@ -31,12 +31,12 @@ export function createVehicle(req, res){
 }
 
 // GET /v1/vehicle/:vehicleID
-export function getVehicle(req, res){
+export const getVehicle = (req, res)=>{
     res.json(req.vehicle)
 }
 
 // PUT /v1/vehicle/:vehicleID
-export function updateVehicle(req, res){
+export const updateVehicle = (req, res)=>{
     req.vehicle.name = req.body.name
     req.vehicle.licenceID = req.body.licenceID
     req.vehicle.model = req.body.model
@@ -54,7 +54,7 @@ export function updateVehicle(req, res){
 }
 
 // DELETE /v1/vehicle/:vehicleID
-export function deleteVehicle(req, res, next){
+export const deleteVehicle = (req, res, next)=>{
     req.vehicle.delete()
     .then((result)=>{
         //res.json(result)

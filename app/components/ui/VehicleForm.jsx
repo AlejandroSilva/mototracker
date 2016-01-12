@@ -13,7 +13,7 @@ class VehicleForm extends React.Component{
             vehicle: {
                 id: this.props.theVehicle.id,
                 name: this.props.theVehicle.name,
-                licenceID: this.props.theVehicle.licenceID,
+                licenceId: this.props.theVehicle.licenceId,
                 model: this.props.theVehicle.model,
                 maker: this.props.theVehicle.maker,
                 gpsID: this.props.theVehicle.gpsID
@@ -90,8 +90,8 @@ class VehicleForm extends React.Component{
                         </FormGroup>
                         <FormGroup label="Patente">
                             <input type="text" className="form-control"
-                                   defaultValue={this.state.vehicle.licenceID}
-                                   onChange={this.handleChange.bind(this, 'licenceID')}
+                                   defaultValue={this.state.vehicle.licenceId}
+                                   onChange={this.handleChange.bind(this, 'licenceId')}
                                    placeholder="Patente. Ej. ED-KF-67"
                                    required
                                 />
@@ -151,7 +151,7 @@ VehicleForm.defaultProps = {
     theVehicle: {
         id: '',
         name: '',
-        licenceID: '',
+        licenceId: '',
         model: '',
         maker: '',
         gpsID: ''

@@ -8,7 +8,7 @@ let r = thinky.r
 let Vehicle = thinky.createModel('Vehicle', {
     id: type.string(),
     name: type.string().required(),
-    licenceID: type.string().required(),    // patente
+    licenceId: type.string().required(),    // patente
     model: type.string().required(),
     maker: type.string().required(),        // marca
     gpsID: type.string().required(),        // identificador del GPS

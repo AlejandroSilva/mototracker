@@ -9,7 +9,7 @@ let r = thinky.r
 
 let Data = thinky.createModel('Data', {
     id: type.string(),
-    idVehicle: type.string().required(),
+    vehicleID: type.string().required(),
     component: type.string().required(),
     content: type.any().required(), // puede ser un objeto o un arreglo de objetos
     createdAt: type.date().default(r.now())
