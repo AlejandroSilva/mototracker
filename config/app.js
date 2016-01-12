@@ -6,21 +6,24 @@ import {
 const pageTitle = `Gps tracker ${__VERSION__}`
 
 export const development = {
-    port: 8888,
+    nodejsPort: 8888,
+    socketioPort: 8888,
     name: __APP_NAME__,
     version: __VERSION__,
     pageTitle
 }
 
 export const production = {
-    port: 8008,
+    nodejsPort: 8008,
+    socketioPort: 80,   // en produccion corre detras de un nginx y pasa por el reverse proxy
     name: __APP_NAME__,
     version: __VERSION__,
     pageTitle
 }
 
 export const testing = {
-    port: 3003,
+    nodejsPort: 3003,
+    socketioPort: 3003,
     name: __APP_NAME__,
     version: __VERSION__,
     pageTitle

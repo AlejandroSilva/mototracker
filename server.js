@@ -13,8 +13,8 @@ import app from './app/boot-server.js'
 /**
  * Iniciar el servidor
  */
-let server = app.listen(appConfig.port, ()=> {
-    console.log(`Servicio iniciado en http://localhost:${appConfig.port}/`)
+let server = app.listen(appConfig.nodejsPort, ()=> {
+    console.log(`Servicio iniciado en http://localhost:${appConfig.nodejsPort}/`)
 
     /**
      * cambios en RethinkDb
@@ -73,7 +73,7 @@ if(__IS_DEVELOPMENT__){
         hot: true,
         historyApiFallback: true,
         proxy: {
-            "*": `http://localhost:${appConfig.port}/`
+            "*": `http://localhost:${appConfig.nodejsPort}/`
         }
     }).listen(3001, '0.0.0.0', (err, result)=>{
         if (err) {

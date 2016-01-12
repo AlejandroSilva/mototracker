@@ -11,7 +11,7 @@ import * as vehicleActions from '../actions/vehicleActions.js'
 // Socket IO
 import { appConfig } from '../../config/index.js'
 import io from 'socket.io-client'
-let socket = io.connect(`http://localhost:${appConfig.port}`)
+let socket = io.connect(`http://localhost:${appConfig.socketioPort}`)
 
 // Components
 import {
