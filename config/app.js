@@ -15,7 +15,7 @@ export const development = {
 
 export const production = {
     nodejsPort: 8008,
-    socketioPort: 80,   // en produccion corre detras de un nginx y pasa por el reverse proxy
+    socketioPort: 8008,   // en produccion corre detras de un nginx y pasa por el reverse proxy
     name: __APP_NAME__,
     version: __VERSION__,
     pageTitle
