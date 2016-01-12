@@ -12,6 +12,7 @@ import * as vehicleActions from '../actions/vehicleActions.js'
 import { appConfig } from '../../config/index.js'
 import io from 'socket.io-client'
 let socket = io.connect(`http://${appConfig.host}:${appConfig.socketioPort}`)
+console.log(`socketio conectando a:    http://${appConfig.host}:${appConfig.socketioPort}`)
 
 // Components
 import {
