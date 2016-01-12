@@ -9,7 +9,7 @@ import * as vehicleActions from '../actions/vehicleActions.js'
 
 @connect(
     (state)=> ({
-        servers: state.servers
+        vehicles: state.vehicles
     }),
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
@@ -19,11 +19,11 @@ import * as vehicleActions from '../actions/vehicleActions.js'
         )
     }
 )
-class ServerEvents extends React.Component {
+class VehicleEvents extends React.Component {
     render() {
         return (
             <p>listado de eventos de un servidor</p>
         )
     }
 }
-export default ServerEvents
+export default VehicleEvents

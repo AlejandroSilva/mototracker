@@ -44,8 +44,6 @@ class Root extends React.Component {
                         <Route path="/" component={ App }>
                             <Route path="fleet" component={ FleetMapView } />
                             <Route path="vehicle/:id" component={ VehicleContainer }>
-                                {/*<IndexRoute component={ ServerData }/>*/}
-
                                 <Route path="data"   component={ VehicleData } />
                                 <Route path="edit"   component={ EditVehicle } />
                                 <Route path="events" component={ VehicleEvents }/>

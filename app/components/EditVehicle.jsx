@@ -12,7 +12,7 @@ import { VehicleForm } from './ui/index.js'
 
 @connect(
     (state)=> ({
-        servers: state.servers
+        vehicles: state.vehicles
     }),
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
@@ -22,7 +22,7 @@ import { VehicleForm } from './ui/index.js'
         )
     }
 )
-class CarServer extends React.Component {
+class EditVehicle extends React.Component {
     render() {
         return (
             <div className="box box-info">
@@ -44,4 +44,4 @@ class CarServer extends React.Component {
 //EditVehicle.propTypes = {
 //    theVehicle: PropTypes.object.isRequired
 //}
-export default CarServer
+export default EditVehicle

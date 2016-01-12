@@ -33,7 +33,7 @@ export let vehicleReducer = (state=defaultState, action={})=>{
                 if(vehicle.id===action.updatedVehicle.id){
                     return action.updatedVehicle
                 }else{
-                    return server
+                    return vehicle
                 }
             })
             return Object.assign({}, state, {

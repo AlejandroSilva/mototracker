@@ -11,7 +11,7 @@ import * as vehicleActions from '../actions/vehicleActions.js'
 @connect(
     (state)=> ({
         routerState: state.router,
-        servers: state.servers
+        vehicles: state.vehicles
     }),
     (dispatch)=>{
         // http://rackt.github.io/redux/docs/api/bindActionCreators.html
