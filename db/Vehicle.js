@@ -11,6 +11,7 @@ let Vehicle = thinky.createModel('Vehicle', {
     licenceID: type.string().required(),    // patente
     model: type.string().required(),
     maker: type.string().required(),        // marca
+    gpsID: type.string().required(),        // identificador del GPS
 
     currentData: type.any().required(), // puede ser un objeto o un arreglo de objetos
     updatedAt: type.date().default(r.now()),

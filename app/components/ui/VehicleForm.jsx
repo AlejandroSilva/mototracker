@@ -15,7 +15,8 @@ class VehicleForm extends React.Component{
                 name: this.props.theVehicle.name,
                 licenceID: this.props.theVehicle.licenceID,
                 model: this.props.theVehicle.model,
-                maker: this.props.theVehicle.maker
+                maker: this.props.theVehicle.maker,
+                gpsID: this.props.theVehicle.gpsID
             }
         }
     }
@@ -110,6 +111,14 @@ class VehicleForm extends React.Component{
                                    required
                                 />
                         </FormGroup>
+                        <FormGroup label="Identificador del GPS">
+                            <input type="text" className="form-control"
+                                   defaultValue={this.state.vehicle.gpsID}
+                                   onChange={this.handleChange.bind(this, 'gpsID')}
+                                   placeholder="Identificador unico. Ej. 131313"
+                                   required
+                            />
+                        </FormGroup>
                         <div className="col-sm-offset-2 col-sm-10">
                             <Alert title="Ocurrio un problema" message={this.state.error} show={this.state.error!==''}/>
                         </div>
@@ -144,7 +153,8 @@ VehicleForm.defaultProps = {
         name: '',
         licenceID: '',
         model: '',
-        maker: ''
+        maker: '',
+        gpsID: ''
     }
 }
 

@@ -39,7 +39,6 @@ class App extends React.Component {
     componentDidMount(){
         // Obtener la lista de vehiculos
         this.props.getVehicles(()=>{})
-        console.log(this.props)
 
         //Cambios en los vehiculos
         //realizar la conexion por sockets para recibir los cambios

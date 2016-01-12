@@ -24,7 +24,6 @@ import { VehicleForm } from './ui/index.js'
 )
 class CarServer extends React.Component {
     render() {
-        console.log(this.props)
         return (
             <div className="box box-info">
                 <div className="box-header with-border">
