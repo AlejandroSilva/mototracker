@@ -14,7 +14,7 @@ import app from './app/boot-server.js'
  * Iniciar el servidor
  */
 let server = app.listen(appConfig.nodejsPort, ()=> {
-    console.log(`Servicio iniciado en http://localhost:${appConfig.nodejsPort}/`)
+    console.log(`Servicio iniciado en http://${appConfig.host}:${appConfig.nodejsPort}/`)
 
     /**
      * cambios en RethinkDb
