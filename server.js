@@ -59,8 +59,6 @@ let server = app.listen(appConfig.nodejsPort, ()=> {
         .catch((err)=>{
             console.log(err)
         })
-
-
 })
 
 
