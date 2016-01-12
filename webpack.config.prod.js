@@ -1,6 +1,5 @@
 var path    = require('path')
 var webpack = require('webpack')
-var packagejson = require("./package.json")
 
 module.exports = {
     entry:  [
@@ -21,8 +20,6 @@ module.exports = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.DefinePlugin({
-            WEBPACK_VERSION: `"v${packagejson.version}"`,
-            WEBPACK_NAME: `"${packagejson.name}"`,
             WEBPACK_IS_DEVELOPMENT: false,
             WEBPACK_IS_PRODUCTION:  true,
             WEBPACK_IS_TESTING:     false

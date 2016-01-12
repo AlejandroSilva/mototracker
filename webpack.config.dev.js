@@ -1,6 +1,5 @@
 import path from 'path'
 import webpack from 'webpack'
-import * as environment from './utils/environment'
 
 module.exports = {
     entry:  [
@@ -26,11 +25,9 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            WEBPACK_VERSION:        environment.__VERSION__,
-            WEBPACK_NAME:           environment.__APP_NAME__,
-            WEBPACK_IS_DEVELOPMENT: environment.__IS_DEVELOPMENT__,
-            WEBPACK_IS_PRODUCTION:  environment.__IS_PRODUCTION__,
-            WEBPACK_IS_TESTING:     environment.__IS_TESTING__
+            WEBPACK_IS_DEVELOPMENT: true,
+            WEBPACK_IS_PRODUCTION:  false,
+            WEBPACK_IS_TESTING:     false
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()

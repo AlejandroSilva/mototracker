@@ -9,10 +9,14 @@ import * as CounterActions from '../actions/counterActions.js'
 import * as vehicleActions from '../actions/vehicleActions.js'
 
 // Socket IO
-import { appConfig } from '../../config/index.js'
+import { appConfig } from '../../config/app.js'
 import io from 'socket.io-client'
 let socket = io.connect(`http://${appConfig.host}:${appConfig.socketioPort}`)
-console.log(`socketio conectando a:    http://${appConfig.host}:${appConfig.socketioPort}`)
+
+// BANNER
+console.log(`CLIENTE: ${appConfig.name}, version ${appConfig.version}.`)
+console.log(`Configuración '${appConfig.environment}' cargada.`)
+console.log(`socketio conectando a: http://${appConfig.host}:${appConfig.socketioPort}`)
 
 // Components
 import {

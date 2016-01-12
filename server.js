@@ -1,6 +1,5 @@
 // Configuracion y variables de entorno
-import { appConfig } from './config/index.js'
-import { __IS_DEVELOPMENT__ } from './utils/environment.js'
+import { appConfig } from './config/app.js'
 
 // Socket to use with RethinkDB
 import socket from 'socket.io'
@@ -14,6 +13,8 @@ import app from './app/boot-server.js'
  * Iniciar el servidor
  */
 let server = app.listen(appConfig.nodejsPort, ()=> {
+    console.log(`Iniciando: ${appConfig.name}, version ${appConfig.version}.`)
+    console.log(`Configuración '${appConfig.environment}' cargada.`)
     console.log(`Servicio iniciado en http://${appConfig.host}:${appConfig.nodejsPort}/`)
 
     /**
@@ -63,7 +64,7 @@ let server = app.listen(appConfig.nodejsPort, ()=> {
 
 
 // we start a webpack-dev-server with our config
-if(__IS_DEVELOPMENT__){
+if(appConfig.environment==='DEV'){
     let webpack = require('webpack')
     let WebpackDevServer = require('webpack-dev-server')
     let webpackConfigDev = require('./webpack.config.dev.js')
@@ -71,7 +72,7 @@ if(__IS_DEVELOPMENT__){
         hot: true,
         historyApiFallback: true,
         proxy: {
-            "*": `http://localhost:${appConfig.nodejsPort}/`
+            "*": `http://${appConfig.host}:${appConfig.nodejsPort}/`
         }
     }).listen(3001, '0.0.0.0', (err, result)=>{
         if (err) {

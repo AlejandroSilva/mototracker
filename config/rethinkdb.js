@@ -1,17 +1,27 @@
-export const development = {
-    host: 'localhost',
-    port: 28015,
-    db: 'motolocator_dev'
+let config
+if(WEBPACK_IS_DEVELOPMENT){
+    config = {
+        host: 'localhost',
+        port: 28015,
+        db: 'motolocator_dev'
+    }
+
+}else if(WEBPACK_IS_PRODUCTION){
+        config = {
+        host: 'localhost',
+        port: 28015,
+        db: 'motolocator'
+    }
+
+}else if(WEBPACK_IS_TESTING){
+    config = {
+        host: 'localhost',
+        port: 28015,
+        db: 'motolocator_test'
+    }
+
+}else {
+    throw new Error("[config/rehitnkdb.js] NO environment selected")
 }
 
-export const production = {
-    host: 'localhost',
-    port: 28015,
-    db: 'motolocator'
-}
-
-export const test = {
-    host: 'localhost',
-    port: 28015,
-    db: 'motolocator_test'
-}
+export const dbConfig = config
