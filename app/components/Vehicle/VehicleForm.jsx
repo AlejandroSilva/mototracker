@@ -2,8 +2,8 @@
 import React, { PropTypes } from 'react'
 
 // Components
-import Alert from './Alert.jsx'
-import FormGroup from './FormGroup.jsx'
+import Alert from './../ui/Alert.jsx'
+import FormGroup from './../ui/FormGroup.jsx'
 
 class VehicleForm extends React.Component{
     constructor(props){
@@ -52,7 +52,7 @@ class VehicleForm extends React.Component{
                 this.setState({error: err.data? err.data.error : err.toString()})
             }else{
                 // Redireccionar a la pagina del vehiculo
-                this.props.pushState(null, `/vehicle/${newVehicle.id}/data`)
+                this.props.pushState(null, `/vehicle/${newVehicle.id}/actual`)
             }
         })
     }

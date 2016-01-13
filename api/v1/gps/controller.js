@@ -4,15 +4,8 @@ import Vehicle from '../../../db/Vehicle.js'
 import Data from '../../../db/Data.js'
 
 // POST /v1/gps/:gpsID
-export function saveGPS(req, res){
+export const saveGPS = (req, res)=>{
     // ToDo: verificar que el servidor exista
-
-    //console.log({
-    //    gpsId: req.gpsID,
-    //    body: req.body,
-    //    params: req.params
-    //
-    //})
 
     Vehicle.filter({
         gpsId: req.gpsID
@@ -46,7 +39,7 @@ export function saveGPS(req, res){
             const gpsData = {
                 raw: raw,
                 utcDatetime: moment(`${date}T${time}+00:00`).utc(0).format(),
-                coordinate: [lattitude,longitude],
+                coordinate: [longitude,lattitude],
                 altitude: mslAltitude,
                 speed: speedOverGround,
                 curse: curseOverGround,

@@ -19,6 +19,7 @@ export const createVehicle = (req, res)=>{
     let newVehicle = new Vehicle(req.body)
     // un usuario no puede agregar el id manualmente
     delete newVehicle.id
+    newVehicle.lastData = {}
 
     newVehicle.save()
         .then(function(result) {

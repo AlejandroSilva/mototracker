@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 // Actions
-import * as vehicleActions from '../actions/vehicleActions.js'
+import * as vehicleActions from '../../actions/vehicleActions.js'
 
 @connect(
     (state)=> ({

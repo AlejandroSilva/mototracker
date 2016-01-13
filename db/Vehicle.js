@@ -13,7 +13,16 @@ let Vehicle = thinky.createModel('Vehicle', {
     maker: type.string().required(),        // marca
     gpsId: type.string().required(),        // identificador del GPS
 
-    lastData: type.any().required(), // puede ser un objeto o un arreglo de objetos
+    //lastData: type.object().schema({
+    //    raw: type.string(),
+    //    utcDatetime: type.date(),
+    //    coordinate: type.point(),
+    //    altitude: type.number(),
+    //    speed: type.number(),
+    //    curse: type.number(),
+    //    vbat: type.string()
+    //}).default({}),
+    lastData: type.any(),
 
     updatedAt: type.date().default(r.now()),
     createdAt: type.date().default(r.now()),

@@ -11,14 +11,15 @@ import { ReduxRouter } from 'redux-router'
 import {
     App,
     FleetMapView,
-    VehicleContainer,
-    VehicleData,
-    EditVehicle,
-    AddVehicle,
-    VehicleEvents,
     NotFound
 } from './components/index.js'
-//import MapExample from './components/MapExample.jsx'
+import {
+    VehicleContainer,
+    VehicleActualView,
+    EditVehicle,
+    AddVehicle,
+    VehicleTimelapse,
+} from './components/Vehicle/'
 
 // Store
 import configureStore from './store/configureStore.js'
@@ -36,7 +37,6 @@ if( WEBPACK_IS_DEVELOPMENT ){
 
 class Root extends React.Component {
     render() {
-        // las rutas (Route) pueden tener un metodo onEnter y onLeave
         return (
             <Provider store={store}>
                 <div>
@@ -44,9 +44,9 @@ class Root extends React.Component {
                         <Route path="/" component={ App }>
                             <Route path="fleet" component={ FleetMapView } />
                             <Route path="vehicle/:id" component={ VehicleContainer }>
-                                <Route path="data"   component={ VehicleData } />
+                                <Route path="actual" component={ VehicleActualView } />
+                                <Route path="timelapse"   component={ VehicleTimelapse }/>
                                 <Route path="edit"   component={ EditVehicle } />
-                                <Route path="events" component={ VehicleEvents }/>
                             </Route>
                             <Route path="add" component={ AddVehicle } />
                             {/*<Route path="map" component={ MapExample } />*/}
@@ -57,6 +57,7 @@ class Root extends React.Component {
                 </div>
             </Provider>
         )
+        // las rutas (Route) pueden tener un metodo onEnter y onLeave
     }
 }
 ReactDOM.render(

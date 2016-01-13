@@ -1,4 +1,4 @@
-// React, Router
+/// React, Router
 import React from 'react'
 import { Link } from 'react-router'
 
@@ -18,18 +18,19 @@ class MenuCars extends React.Component {
                     {this.props.vehicles.map((vehicle, index)=> {
                         return (
                             <li key={vehicle.id}>
-                                <Link to={`/vehicle/${vehicle.id}/data`}>
+                                <Link to={`/vehicle/${vehicle.id}/actual`}>
                                     <i className="fa fa-circle-o"></i>
                                     {vehicle.name}
                                 </Link>
                             </li>
                         )
                      })}
-                    <li key='100' ><Link to={'/vehicle/estaidnoexiste/data'}>
+                    {/*
+                    <li key='100' ><Link to={'/vehicle/estaidnoexiste/actual'}>
                         <i className="fa fa-circle-o"></i>
                         AB-12-34(no existe en BD)
                     </Link></li>
-
+                    */}
                     <li key='999' ><Link to={'/add'}>
                         <i className="fa fa-circle-o text-aqua"></i>
                         Agregar nuevo

@@ -5,12 +5,12 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 // Actions
-import * as VehicleActions from '../actions/vehicleActions.js'
+import * as VehicleActions from '../../actions/vehicleActions.js'
 
 // Modules
 import {
     ErrorPage
-} from './ui/index.js'
+} from './../ui/index.js'
 
 @connect(
     (state)=> ({
@@ -36,7 +36,6 @@ class VechicleContainer extends React.Component {
                 message="El vehiculo que busca no ha sido encontrado. Esto se puede deber a que el ID no sea el correcto, o que haya sido eliminado."
                 />
         }
-        //console.log(this.props)
         const pathname = this.props.location.pathname
         const paths = pathname.split('/')
         const activePath = paths[paths.length-1]
@@ -52,18 +51,18 @@ class VechicleContainer extends React.Component {
                             </h1>
                             <ul className="nav nav-tabs">
                                 <li className={activePath==='data'? 'active':''}>
-                                    <Link to={`/vehicle/${this.props.params.id}/data`} data-toggle="tab">
-                                        Datos
+                                    <Link to={`/vehicle/${this.props.params.id}/actual`} data-toggle="tab">
+                                        Vista actual
+                                    </Link>
+                                </li>
+                                <li className={activePath==='events'? 'active':''}>
+                                    <Link to={`/vehicle/${this.props.params.id}/timelapse`} data-toggle="tab">
+                                        Eventos del vehiculo
                                     </Link>
                                 </li>
                                 <li className={activePath==='edit'? 'active':''}>
                                     <Link to={`/vehicle/${this.props.params.id}/edit`} data-toggle="tab">
                                         Configuración
-                                    </Link>
-                                </li>
-                                <li className={activePath==='events'? 'active':''}>
-                                    <Link to={`/vehicle/${this.props.params.id}/events`} data-toggle="tab">
-                                        Eventos del vehiculo
                                     </Link>
                                 </li>
                             </ul>
