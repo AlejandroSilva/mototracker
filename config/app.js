@@ -13,7 +13,6 @@ if(NODE_ENV==='development'){
     config = {
         host: 'localhost',
         nodejsPort: 8888,
-        socketioPort: 8888,
         name: appName,
         version: appVersion,
         pageTitle,
@@ -24,7 +23,6 @@ if(NODE_ENV==='development'){
     config = {
         host: 'motolocator.ml',
         nodejsPort: 8008,
-        socketioPort: 8008,   // en produccion corre detras de un nginx y pasa por el reverse proxy
         name: appName,
         version: appVersion,
         pageTitle,
@@ -35,7 +33,6 @@ if(NODE_ENV==='development'){
     config = {
         host: 'localhost',
         nodejsPort: 3003,
-        socketioPort: 3003,
         name: appName,
         version: appVersion,
         pageTitle,

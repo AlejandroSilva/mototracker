@@ -9,9 +9,6 @@ import * as CounterActions from '../actions/counterActions.js'
 import * as vehicleActions from '../actions/vehicleActions.js'
 
 // Socket IO
-
-console.log(WEBPACK_IS_DEVELOPMENT)
-console.log(APP_HOST)
 import io from 'socket.io-client'
 let socket = io.connect(`http://${APP_HOST}:${APP_PORT}`)
 
