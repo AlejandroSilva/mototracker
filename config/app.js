@@ -6,7 +6,7 @@ const appVersion = `v${packagejson.version}`
 const pageTitle = `${packagejson.name} ${appVersion}`
 
 let config
-if(NODE_ENV==='development'){
+if(NODE_ENV==='development' || WEBPACK_IS_DEVELOPMENT){
     config = {
         host: 'localhost',
         nodejsPort: 8888,
@@ -17,7 +17,7 @@ if(NODE_ENV==='development'){
         environment: 'DEV'
     }
 
-}else if(NODE_ENV==='production'){
+}else if(NODE_ENV==='production' || WEBPACK_IS_PRODUCTION){
     config = {
         host: 'motolocator.ml',
         nodejsPort: 8008,
@@ -28,7 +28,7 @@ if(NODE_ENV==='development'){
         environment: 'PROD'
     }
 
-}else if(NODE_ENV==='testing'){
+}else if(NODE_ENV==='testing' || WEBPACK_IS_TESTING){
     config = {
         host: 'localhost',
         nodejsPort: 3003,
@@ -40,6 +40,7 @@ if(NODE_ENV==='development'){
     }
 
 }else {
+    console.log(process.env)
     throw new Error("[config/app.js] NO environment selected")
 }
 
