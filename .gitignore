@@ -4,4 +4,4 @@ npm-debug.log
 rethinkdb_data
 node_modules
 webpack.log
-public/bundle.js
+#public/bundle.js
