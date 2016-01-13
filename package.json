@@ -1,6 +1,6 @@
 {
   "name": "MotoTracker",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "sistema de rastreo por gps para proyecto de titulo",
   "repository": {
     "type": "git",
@@ -8,12 +8,12 @@
   },
   "main": "server.js",
   "scripts": {
-    "webpack-prod": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "babel-dev": "NODE_ENV=development babel-node server.js --source-maps --lo glevel error",
     "babel-prod": "NODE_ENV=production babel-node server.js --source-maps",
     "babel-test": "NODE_ENV=testing ./node_modules/.bin/mocha --compilers js:babel/register --timeout 8000 test/v1.js ",
-    "start-server": "NODE_ENV=production pm2 start server.js --name server --interpreter babel-node",
-    "stop-server": "pm2 stop server"
+    "stop-server": "pm2 delete server",
+    "start-server": "NODE_ENV=production pm2 start server.js --name server --interpreter babel-node"
   },
   "author": "asilva",
   "license": "ISC",
@@ -33,7 +33,8 @@
     "rethinkdb": "^2.1.1",
     "socket.io": "^1.4.4",
     "socket.io-client": "^1.4.4",
-    "thinky": "^2.1.6"
+    "thinky": "^2.1.6",
+    "webpack": "^1.12.1"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
@@ -52,7 +53,6 @@
     "redux-devtools-dock-monitor": "^1.0.0-beta-3",
     "redux-devtools-log-monitor": "^1.0.0-beta-3",
     "supertest": "^1.1.0",
-    "webpack": "^1.12.1",
     "webpack-dev-server": "^1.10.1"
   }
 }
