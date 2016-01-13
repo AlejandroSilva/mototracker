@@ -13,7 +13,8 @@ let Vehicle = thinky.createModel('Vehicle', {
     maker: type.string().required(),        // marca
     gpsId: type.string().required(),        // identificador del GPS
 
-    currentData: type.any().required(), // puede ser un objeto o un arreglo de objetos
+    lastData: type.any().required(), // puede ser un objeto o un arreglo de objetos
+
     updatedAt: type.date().default(r.now()),
     createdAt: type.date().default(r.now()),
     status: type.array().default([])

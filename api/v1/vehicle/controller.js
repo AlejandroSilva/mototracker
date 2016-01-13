@@ -15,6 +15,7 @@ export const getAllVehicles = (req, res)=>{
 
 // POST /v1/vehicle/
 export const createVehicle = (req, res)=>{
+    //ToDo: el gpsId no puede estar repetido
     let newVehicle = new Vehicle(req.body)
     // un usuario no puede agregar el id manualmente
     delete newVehicle.id
@@ -37,6 +38,7 @@ export const getVehicle = (req, res)=>{
 
 // PUT /v1/vehicle/:vehicleID
 export const updateVehicle = (req, res)=>{
+    // Todo: no se puede cambiar el id ni el gpsId
     req.vehicle.name = req.body.name
     req.vehicle.licenceID = req.body.licenceID
     req.vehicle.model = req.body.model

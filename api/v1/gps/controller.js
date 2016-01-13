@@ -43,9 +43,7 @@ export function saveGPS(req, res){
             mslAltitude *= 1
             speedOverGround *=1
             curseOverGround *=1
-
-            let data = new Data({
-                vehicleId: req.gpsID,
+            const gpsData = {
                 raw: raw,
                 utcDatetime: moment(`${date}T${time}+00:00`).utc(0).format(),
                 coordinate: [lattitude,longitude],
@@ -53,8 +51,14 @@ export function saveGPS(req, res){
                 speed: speedOverGround,
                 curse: curseOverGround,
                 vbat: req.body.vbat
+            }
+            // guardar los datos, y actualizar la ultima posicion del vehiculo
+            vehicle.lastData = gpsData
+            let data = new Data({
+                ...gpsData,
+                gpsId: req.gpsID,
+                vehicle: vehicle
             })
-            data.vehicle = vehicle
             data.saveAll({vehicle:true})
                 .then((result)=>{
                     res.status(201).json(result)

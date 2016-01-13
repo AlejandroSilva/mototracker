@@ -10,7 +10,7 @@ let r = thinky.r
 let Data = thinky.createModel('Data', {
     id: type.string(),
 
-    vehicleId: type.string().required(),
+    gpsId: type.string().required(),
     raw: type.string().required(),
     utcDatetime: type.date().required(),
     coordinate: type.point().required(),
