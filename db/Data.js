@@ -9,10 +9,17 @@ let r = thinky.r
 
 let Data = thinky.createModel('Data', {
     id: type.string(),
-    vehicleID: type.string().required(),
-    component: type.string().required(),
-    content: type.any().required(), // puede ser un objeto o un arreglo de objetos
-    createdAt: type.date().default(r.now())
+
+    vehicleId: type.string().required(),
+    raw: type.string().required(),
+    utcDatetime: type.date().required(),
+    coordinate: type.point().required(),
+    altitude: type.number().required(),
+    speed: type.number().required(),
+    curse: type.number().required(),
+    vbat: type.string().required(),
+
+    savedAt: type.date().default(r.now())
 },{
     //enforce_missing: true,      // validacion obliga a tener los campos
     enforce_extra: 'remove',    // elimina los campos que no estan en el modelo
@@ -21,6 +28,7 @@ let Data = thinky.createModel('Data', {
 })
 Data.ensureIndex('id')
 
-Data.belongsTo(Vehicle, 'vehicle', 'idVehicle', 'id')
+//            (OtherModel, fieldName, leftKey, rightKey[, options]);
+Data.belongsTo(Vehicle, 'vehicle', 'vehicleId', 'id')
 
 export default Data
