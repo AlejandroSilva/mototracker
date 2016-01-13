@@ -1,5 +1,5 @@
-let path    = require('path')
-let webpack = require('webpack')
+var path    = require('path')
+var webpack = require('webpack')
 import { appConfig } from './config/app.js'
 
 module.exports = {
