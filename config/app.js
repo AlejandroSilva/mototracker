@@ -1,40 +1,40 @@
 let packagejson = require("../package.json")
-import { environment } from './environment.js'
-
-export const __APP_NAME__= `"${packagejson.name}"`
-export const __VERSION__ = `"v${packagejson.version}"`
-export const pageTitle = `${packagejson.name} ${__VERSION__}`
+//import { environment } from './environment.js'
+const NODE_ENV = process.env.NODE_ENV
+const appName= packagejson.name
+const appVersion = `v${packagejson.version}`
+const pageTitle = `${packagejson.name} ${appVersion}`
 
 let config
-if(environment==='development'){
+if(NODE_ENV==='development'){
     config = {
         host: 'localhost',
         nodejsPort: 8888,
         socketioPort: 8888,
-        name: __APP_NAME__,
-        version: __VERSION__,
+        name: appName+' dev',
+        version: appVersion+' dev',
         pageTitle,
         environment: 'DEV'
     }
 
-}else if(environment==='production'){
+}else if(NODE_ENV==='production'){
     config = {
         host: 'motolocator.ml',
         nodejsPort: 8008,
         socketioPort: 8008,   // en produccion corre detras de un nginx y pasa por el reverse proxy
-        name: __APP_NAME__,
-        version: __VERSION__,
+        name: appName,
+        version: appVersion,
         pageTitle,
         environment: 'PROD'
     }
 
-}else if(environment==='testing'){
+}else if(NODE_ENV==='testing'){
     config = {
         host: 'localhost',
         nodejsPort: 3003,
         socketioPort: 3003,
-        name: __APP_NAME__,
-        version: __VERSION__,
+        name: appName,
+        version: appVersion,
         pageTitle,
         environment: 'TEST'
     }

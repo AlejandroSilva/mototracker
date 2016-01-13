@@ -1,21 +1,22 @@
-import { environment } from './environment.js'
+//import { environment } from './environment.js'
+const NODE_ENV = process.env.NODE_ENV
 
 let config
-if(environment==='development'){
+if(NODE_ENV==='development'){
     config = {
         host: 'localhost',
         port: 28015,
         db: 'motolocator_dev'
     }
 
-}else if(environment==='production'){
+}else if(NODE_ENV==='production'){
         config = {
         host: 'localhost',
         port: 28015,
         db: 'motolocator'
     }
 
-}else if(environment==='testing'){
+}else if(NODE_ENV==='testing'){
     config = {
         host: 'localhost',
         port: 28015,

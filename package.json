@@ -15,7 +15,7 @@
     "start-server": "NODE_ENV=production pm2 start server.js --name server --interpreter babel-node",
     "stop-server": "pm2 stop server"
   },
-  "author": "toth.cl",
+  "author": "asilva",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.8.1",
