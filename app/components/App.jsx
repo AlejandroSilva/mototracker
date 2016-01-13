@@ -9,14 +9,16 @@ import * as CounterActions from '../actions/counterActions.js'
 import * as vehicleActions from '../actions/vehicleActions.js'
 
 // Socket IO
-import { appConfig } from '../../config/app.js'
+
+console.log(WEBPACK_IS_DEVELOPMENT)
+console.log(APP_HOST)
 import io from 'socket.io-client'
-let socket = io.connect(`http://${appConfig.host}:${appConfig.socketioPort}`)
+let socket = io.connect(`http://${APP_HOST}:${APP_PORT}`)
 
 // BANNER
-console.log(`CLIENTE: ${appConfig.name}, version ${appConfig.version}.`)
-console.log(`Configuración '${appConfig.environment}' cargada.`)
-console.log(`socketio conectando a: http://${appConfig.host}:${appConfig.socketioPort}`)
+console.log(`CLIENTE: ${APP_NAME}, version ${APP_VERSION}.`)
+console.log(`Configuración ${APP_ENV} cargada.`)
+console.log(`socketio conectando a: http://${APP_HOST}:${APP_PORT}`)
 
 // Components
 import {
@@ -68,7 +70,7 @@ class App extends React.Component {
                     <header className="main-header">
                         <a href="index2.html" className="logo">
                             <span className="logo-mini"><b>T</b>H</span>
-                            <span className="logo-lg"><b>{appConfig.name}</b> <small>{appConfig.version}</small></span>
+                            <span className="logo-lg"><b>{APP_NAME}</b> <small>{APP_VERSION}</small></span>
                         </a>
 
                         <nav className="navbar navbar-static-top" role="navigation">

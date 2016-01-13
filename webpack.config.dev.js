@@ -1,5 +1,6 @@
 import path from 'path'
 import webpack from 'webpack'
+import { appConfig } from './config/app.js'
 
 module.exports = {
     entry:  [
@@ -25,6 +26,11 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
+            APP_NAME: `'${appConfig.name}'`,
+            APP_VERSION: `'${appConfig.version}'`,
+            APP_HOST: `'${appConfig.host}'`,
+            APP_PORT: appConfig.nodejsPort,
+            APP_ENV : `'${appConfig.environment}'`,
             WEBPACK_IS_DEVELOPMENT: true,
             WEBPACK_IS_PRODUCTION:  false,
             WEBPACK_IS_TESTING:     false

@@ -2,21 +2,21 @@
 const NODE_ENV = process.env.NODE_ENV
 
 let config
-if(NODE_ENV==='development' || WEBPACK_IS_DEVELOPMENT){
+if(NODE_ENV==='development'){
     config = {
         host: 'localhost',
         port: 28015,
         db: 'motolocator_dev'
     }
 
-}else if(NODE_ENV==='production' || WEBPACK_IS_PRODUCTION){
+}else if(NODE_ENV==='production'){
         config = {
         host: 'localhost',
         port: 28015,
         db: 'motolocator'
     }
 
-}else if(NODE_ENV==='testing' || WEBPACK_IS_TESTING){
+}else if(NODE_ENV==='testing'){
     config = {
         host: 'localhost',
         port: 28015,

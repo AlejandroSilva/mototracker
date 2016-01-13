@@ -1,3 +1,6 @@
+// Solo llamar en server side.
+// si se necesitan las variables en frontend, usar las globales de webpack
+
 let packagejson = require("../package.json")
 //import { environment } from './environment.js'
 const NODE_ENV = process.env.NODE_ENV
@@ -6,18 +9,18 @@ const appVersion = `v${packagejson.version}`
 const pageTitle = `${packagejson.name} ${appVersion}`
 
 let config
-if(NODE_ENV==='development' || WEBPACK_IS_DEVELOPMENT){
+if(NODE_ENV==='development'){
     config = {
         host: 'localhost',
         nodejsPort: 8888,
         socketioPort: 8888,
-        name: appName+' dev',
-        version: appVersion+' dev',
+        name: appName,
+        version: appVersion,
         pageTitle,
         environment: 'DEV'
     }
 
-}else if(NODE_ENV==='production' || WEBPACK_IS_PRODUCTION){
+}else if(NODE_ENV==='production'){
     config = {
         host: 'motolocator.ml',
         nodejsPort: 8008,
@@ -28,7 +31,7 @@ if(NODE_ENV==='development' || WEBPACK_IS_DEVELOPMENT){
         environment: 'PROD'
     }
 
-}else if(NODE_ENV==='testing' || WEBPACK_IS_TESTING){
+}else if(NODE_ENV==='testing'){
     config = {
         host: 'localhost',
         nodejsPort: 3003,
