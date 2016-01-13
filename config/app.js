@@ -1,14 +1,14 @@
 // Solo llamar en server side.
 // si se necesitan las variables en frontend, usar las globales de webpack
 
-let packagejson = require("../package.json")
+var packagejson = require("../package.json")
 //import { environment } from './environment.js'
-const NODE_ENV = process.env.NODE_ENV
-const appName= packagejson.name
-const appVersion = `v${packagejson.version}`
-const pageTitle = `${packagejson.name} ${appVersion}`
+var NODE_ENV = process.env.NODE_ENV
+var appName= packagejson.name
+var appVersion = `v${packagejson.version}`
+var pageTitle = `${packagejson.name} ${appVersion}`
 
-let config
+var config
 if(NODE_ENV==='development'){
     config = {
         host: 'localhost',
@@ -47,4 +47,4 @@ if(NODE_ENV==='development'){
     throw new Error("[config/app.js] NO environment selected")
 }
 
-export const appConfig = config
+module.exports = config

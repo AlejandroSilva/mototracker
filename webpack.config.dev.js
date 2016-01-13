@@ -1,6 +1,6 @@
 import path from 'path'
 import webpack from 'webpack'
-import { appConfig } from './config/app.js'
+import * as appConfig from './config/app.js'
 
 module.exports = {
     entry:  [

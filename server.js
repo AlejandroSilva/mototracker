@@ -1,5 +1,5 @@
 // Configuracion y variables de entorno
-import { appConfig } from './config/app.js'
+import * as appConfig from './config/app.js'
 
 // Socket to use with RethinkDB
 import socket from 'socket.io'

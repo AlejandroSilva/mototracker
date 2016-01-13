@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
-import { appConfig } from '../config/app.js'
+import * as appConfig from '../config/app.js'
 let app = express()
 
 /**
