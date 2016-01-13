@@ -1,5 +1,5 @@
 import Thinky from 'thinky'
-import { dbConfig } from '../config/index.js'
+import { dbConfig } from '../config/rethinkdb.js'
 let thinky = Thinky(dbConfig)
 let type = thinky.type
 let r = thinky.r

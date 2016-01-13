@@ -1,11 +1,12 @@
 let packagejson = require("../package.json")
+import { environment } from './environment.js'
 
 export const __APP_NAME__= `"${packagejson.name}"`
 export const __VERSION__ = `"v${packagejson.version}"`
 export const pageTitle = `${packagejson.name} ${__VERSION__}`
 
 let config
-if(WEBPACK_IS_DEVELOPMENT){
+if(environment==='development'){
     config = {
         host: 'localhost',
         nodejsPort: 8888,
@@ -16,7 +17,7 @@ if(WEBPACK_IS_DEVELOPMENT){
         environment: 'DEV'
     }
 
-}else if(WEBPACK_IS_PRODUCTION){
+}else if(environment==='production'){
     config = {
         host: 'motolocator.ml',
         nodejsPort: 8008,
@@ -27,7 +28,7 @@ if(WEBPACK_IS_DEVELOPMENT){
         environment: 'PROD'
     }
 
-}else if(WEBPACK_IS_TESTING){
+}else if(environment==='testing'){
     config = {
         host: 'localhost',
         nodejsPort: 3003,

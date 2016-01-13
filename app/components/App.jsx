@@ -68,7 +68,7 @@ class App extends React.Component {
                     <header className="main-header">
                         <a href="index2.html" className="logo">
                             <span className="logo-mini"><b>T</b>H</span>
-                            <span className="logo-lg"><b>{WEBPACK_NAME}</b> <small>{WEBPACK_VERSION}</small></span>
+                            <span className="logo-lg"><b>{appConfig.__APP_NAME__}</b> <small>{appConfig.__VERSION__}</small></span>
                         </a>
 
                         <nav className="navbar navbar-static-top" role="navigation">

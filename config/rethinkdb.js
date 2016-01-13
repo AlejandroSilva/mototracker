@@ -1,19 +1,21 @@
+import { environment } from './environment.js'
+
 let config
-if(WEBPACK_IS_DEVELOPMENT){
+if(environment==='development'){
     config = {
         host: 'localhost',
         port: 28015,
         db: 'motolocator_dev'
     }
 
-}else if(WEBPACK_IS_PRODUCTION){
+}else if(environment==='production'){
         config = {
         host: 'localhost',
         port: 28015,
         db: 'motolocator'
     }
 
-}else if(WEBPACK_IS_TESTING){
+}else if(environment==='testing'){
     config = {
         host: 'localhost',
         port: 28015,
