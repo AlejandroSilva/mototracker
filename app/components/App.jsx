@@ -107,7 +107,13 @@ class App extends React.Component {
 
                     {/* Cuerpo de la pagina */}
                     <div className="content-wrapper" style={{minHeight: 1000+'px', maxWidth: 1000+'px'}}>
-                        {this.props.children || "Seleccione un vehiculo desde el menu lateral"}
+                        {this.props.children || (this.props.vehicles.list.map(vehicle=> {
+                            return (
+                                <Link to={`/vehicle/${vehicle.id}/actual`} key={vehicle.id}>
+                                    <h3>ver datos de <b>{vehicle.name}</b></h3>
+                                </Link>
+                            )
+                        }))}
                     </div>
                 </div>
         )
