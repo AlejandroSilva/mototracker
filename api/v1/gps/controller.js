@@ -39,7 +39,7 @@ export const saveGPS = (req, res)=>{
             const gpsData = {
                 raw: raw,
                 utcDatetime: moment(`${date}T${time}+00:00`).utc(0).format(),
-                coordinate: [longitude,lattitude],
+                coordinate: [longitude,lattitude], // x,y
                 altitude: mslAltitude,
                 speed: speedOverGround,
                 curse: curseOverGround,

@@ -58,8 +58,9 @@ app.get('/*', function (req, res) {
                     <link type="text/css" rel="stylesheet" href="/adminlte/css/skins/skin-blue.min.css">
                     <!-- Font-awesome -->
                     <link type="text/css" rel="stylesheet" href="/font-awesome/font-awesome.min.css">
-                    <!-- Leaflet-->
-                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+                    <!-- Mapbox -->
+                    <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+                    <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
                     <style>
                         .leaflet-container {
                             height: 400px;
