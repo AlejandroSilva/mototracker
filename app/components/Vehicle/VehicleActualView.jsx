@@ -26,7 +26,8 @@ class VehicleActualView extends React.Component {
                     zoom={15}
                 >
                     <Marker
-                        position = {[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                        position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                        drawLine={true}
                     />
                 </SimpleMap>
                 <p>Lat,Long:   {theVehicle.lastData.coordinate[0]}, {theVehicle.lastData.coordinate[1]}</p>
