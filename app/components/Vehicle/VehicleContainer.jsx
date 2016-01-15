@@ -46,16 +46,16 @@ class VechicleContainer extends React.Component {
                     <div className="row">
                         <div className="nav-tabs-custom col-12-md">
                             <h1>
-                                <b>{theVehicle.name}</b> (patente: {theVehicle.licenceID})
-                                <small> {theVehicle.project}</small>
+                                <b>{theVehicle.name}</b> ({theVehicle.licenceId})
+                                <small> {theVehicle.model}</small>
                             </h1>
                             <ul className="nav nav-tabs">
-                                <li className={activePath==='data'? 'active':''}>
+                                <li className={activePath==='actual'? 'active':''}>
                                     <Link to={`/vehicle/${this.props.params.id}/actual`} data-toggle="tab">
                                         Vista actual
                                     </Link>
                                 </li>
-                                <li className={activePath==='events'? 'active':''}>
+                                <li className={activePath==='timelapse'? 'active':''}>
                                     <Link to={`/vehicle/${this.props.params.id}/timelapse`} data-toggle="tab">
                                         Eventos del vehiculo
                                     </Link>

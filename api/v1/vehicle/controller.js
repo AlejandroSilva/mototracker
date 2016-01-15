@@ -41,7 +41,7 @@ export const getVehicle = (req, res)=>{
 export const updateVehicle = (req, res)=>{
     // Todo: no se puede cambiar el id ni el gpsId
     req.vehicle.name = req.body.name
-    req.vehicle.licenceID = req.body.licenceID
+    req.vehicle.licenceId = req.body.licenceId
     req.vehicle.model = req.body.model
     req.vehicle.maker = req.body.maker
     req.vehicle.gpsId = req.body.gpsId
