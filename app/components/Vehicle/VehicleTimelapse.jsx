@@ -10,7 +10,7 @@ import * as vehicleActions from '../../actions/vehicleActions.js'
 // Components
 import { DateRange, defaultRanges} from 'react-date-range'
 import SimpleMap from '../Map/SimpleMap.jsx'
-import Marker from '../Map/Marker.jsx'
+import Polyline from '../Map/Polyline.jsx'
 
 // API
 import * as API from '../../apiClient/v1'
@@ -70,13 +70,14 @@ class VehicleEvents extends React.Component {
             })
     }
     render() {
+
         const theVehicle = this.props.theVehicle
 
         if(!theVehicle.name){
             return "[el vehiculo no existe]"
 
         }else if(theVehicle.lastData && theVehicle.lastData.raw){
-
+            const miCasa = [-34.966231, -71.242797]
             return (
                 <div className="box box-info">
                     <div className="box-header with-border">
@@ -94,12 +95,11 @@ class VehicleEvents extends React.Component {
                         <div className="row">
                             <SimpleMap
                                 mapId="vehiclemap"
-                                center={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
-                                zoom={15}>
+                                center={miCasa}
+                                zoom={13}>
 
-                                <Marker
-                                    position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
-                                    drawLine={true}
+                                <Polyline
+                                    path={this.state.points}
                                 />
                             </SimpleMap>
                         </div>
