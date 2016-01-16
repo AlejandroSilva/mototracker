@@ -76,6 +76,7 @@ class VehicleEvents extends React.Component {
             return "[el vehiculo no existe]"
 
         }else if(theVehicle.lastData && theVehicle.lastData.raw){
+
             return (
                 <div className="box box-info">
                     <div className="box-header with-border">
