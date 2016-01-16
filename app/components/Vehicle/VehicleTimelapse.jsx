@@ -7,22 +7,94 @@ import { connect } from 'react-redux'
 // Actions
 import * as vehicleActions from '../../actions/vehicleActions.js'
 
-@connect(
-    (state)=> ({
-        vehicles: state.vehicles
-    }),
-    (dispatch)=>{
-        // http://rackt.github.io/redux/docs/api/bindActionCreators.html
-        return bindActionCreators(
-            vehicleActions,
-            dispatch
-        )
-    }
-)
+// Components
+import { DateRange, defaultRanges} from 'react-date-range'
+
+import SimpleMap from '../Map/SimpleMap.jsx'
+import Marker from '../Map/Marker.jsx'
+
+//@connect(
+//    (state)=> ({
+//        vehicles: state.vehicles
+//    }),
+//    (dispatch)=>{
+//        // http://rackt.github.io/redux/docs/api/bindActionCreators.html
+//        return bindActionCreators(
+//            vehicleActions,
+//            dispatch
+//        )
+//    }
+//)
 class VehicleEvents extends React.Component {
+    constructor(...args){
+        super(...args)
+        this.state = {
+            startDate: null,
+            endDate: null,
+            message: '....'
+        }
+    }
+    rangeSelected(range){
+        const startDate = range.startDate.format('DD/MMMM/YYYY') // h:mma
+        const endDate = range.endDate.format('DD/MMMM/YYYY')
+
+        this.setState({
+            startDate: range.startDate,
+            endDate: range.endDate,
+            message: startDate===endDate? `Buscando datos del: ${startDate}...` :
+                `Buscando datos entre: ${startDate}, y ${endDate}...`
+        })
+    }
     render() {
+        const theVehicle = this.props.theVehicle
+
+        let content
+        if(!theVehicle.name){
+            content = "[el vehiculo no existe]"
+
+        }else if(theVehicle.lastData && theVehicle.lastData.raw){
+
+            content = (
+                <div className="box box-info">
+                    <div className="box-header with-border">
+                        <h3 className="box-title">{'Recorrido del vehículo en un periodo de tiempo'}</h3>
+                    </div>
+                    <div className="box-body">
+                        <h3>Selecciona un rango de dias:</h3>
+                        <DateRange
+                            ranges={defaultRanges}
+                            onChange={this.rangeSelected.bind(this)}
+                            firstDayOfWeek={1}
+                        />
+
+                        <h3>{this.state.message}</h3>
+                        <h1>HACER LA PETICION AL SERVIDOR!!!!!!!!!!</h1>
+                        <SimpleMap
+                            mapId="vehiclemap"
+                            center={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                            zoom={15}>
+
+                            <Marker
+                                position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                                drawLine={true}
+                            />
+                        </SimpleMap>
+                        <p>Lat,Long:   {theVehicle.lastData.coordinate[0]}, {theVehicle.lastData.coordinate[1]}</p>
+                        <p>hora:       {theVehicle.lastData.utcDatetime}</p>
+                        <p>Speed:      {theVehicle.lastData.speed}</p>
+                        <p>Curse:      {theVehicle.lastData.curse}</p>
+                        <p>vbat:       {theVehicle.lastData.vbat}</p>
+                    </div>
+                </div>
+            )
+        }else{
+            content = <h3>Todavia no se reciben datos de este vehiculo</h3>
+        }
+
         return (
-            <p>listado de eventos de un servidor</p>
+            <div>
+                {(content)}
+            </div>
         )
     }
 }

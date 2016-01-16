@@ -19,24 +19,31 @@ class VehicleActualView extends React.Component {
 
         }else if(theVehicle.lastData && theVehicle.lastData.raw){
 
-            content = <div>
-                <SimpleMap
-                    mapId="vehiclemap"
-                    center={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
-                    zoom={15}
-                >
-                    <Marker
-                        position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
-                        drawLine={true}
-                    />
-                </SimpleMap>
-                <p>Lat,Long:   {theVehicle.lastData.coordinate[0]}, {theVehicle.lastData.coordinate[1]}</p>
-                <p>hora:       {theVehicle.lastData.utcDatetime}</p>
-                <p>visto hace: {timeago(theVehicle.lastData.utcDatetime)}</p>
-                <p>Speed:      {theVehicle.lastData.speed}</p>
-                <p>Curse:      {theVehicle.lastData.curse}</p>
-                <p>vbat:       {theVehicle.lastData.vbat}</p>
-            </div>
+            content = (
+                    <div className="box box-info">
+                        <div className="box-header with-border">
+                            <h3 className="box-title">{'Ubicación actual del vehiculo'}</h3>
+                        </div>
+                        <div className="box-body">
+                            <SimpleMap
+                                mapId="vehiclemap"
+                                center={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                                zoom={15}
+                            >
+                                <Marker
+                                    position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                                    drawLine={true}
+                                />
+                            </SimpleMap>
+                            <p>Lat,Long:   {theVehicle.lastData.coordinate[0]}, {theVehicle.lastData.coordinate[1]}</p>
+                            <p>hora:       {theVehicle.lastData.utcDatetime}</p>
+                            <p>visto hace: {timeago(theVehicle.lastData.utcDatetime)}</p>
+                            <p>Speed:      {theVehicle.lastData.speed}</p>
+                            <p>Curse:      {theVehicle.lastData.curse}</p>
+                            <p>vbat:       {theVehicle.lastData.vbat}</p>
+                        </div>
+                    </div>
+                )
         }else{
             content = <h3>Todavia no se reciben datos de este vehiculo</h3>
         }

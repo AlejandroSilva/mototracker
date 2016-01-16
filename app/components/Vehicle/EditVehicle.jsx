@@ -26,9 +26,6 @@ class EditVehicle extends React.Component {
     render() {
         return (
             <div className="box box-info">
-                <div className="box-header with-border">
-                    <h3 className="box-title">Actualizar datos del servidor</h3>
-                </div>
                 {/*Si a VehicleForm, se le entregan datos , este generara un formulario para editarlo*/}
                 <VehicleForm
                     updateVehicle={this.props.updateVehicle}

@@ -70,7 +70,7 @@ class VehicleForm extends React.Component{
         return (
             <div className="box box-info">
                 <div className="box-header with-border">
-                    <h3 className="box-title">{this.state.vehicle.id? 'Actualizar datos' : 'Agregar vehiculo'}</h3>
+                    <h3 className="box-title">{this.state.vehicle.id? 'Actualizar datos del Vehículo' : 'Agregar vehículo'}</h3>
                 </div>
                 <form className="form-horizontal" onSubmit={this.sendForm.bind(this)}>
                     <div className="box-body">

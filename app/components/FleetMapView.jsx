@@ -25,7 +25,7 @@ class FleetMapView extends React.Component {
     render() {
         return (
             <section className="content">
-                <h3>mapa con todos los vehiculos</h3>
+                <h3>mapa con todos los vehículos</h3>
             </section>
         )
     }

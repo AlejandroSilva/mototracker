@@ -7,7 +7,7 @@ class MenuCars extends React.Component {
         return (
             <li className="treeview active">
                 <a href="#">
-                    <i className="fa fa-calendar"></i> <span>Vehiculos</span>
+                    <i className="fa fa-calendar"></i> <span>Vehículos</span>
                     <small className="label pull-right bg-red">3</small>
                 </a>
                 <ul className="treeview-menu">

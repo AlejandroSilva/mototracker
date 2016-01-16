@@ -31,4 +31,14 @@ Data.ensureIndex('id')
 //            (OtherModel, fieldName, leftKey, rightKey[, options]);
 Data.belongsTo(Vehicle, 'vehicle', 'vehicleId', 'id')
 
+
+Data.defineStatic('findDuring', (dateStart, dateEnd)=>{
+    return Data
+        .filter(function(data){
+            return data("utcDatetime")
+                .during(r.time(2016,1,13, 15,0,0, "-03:00"), r.time(2016,1,18, 16,0,0, "-03:00"))
+        })
+})
+
+
 export default Data

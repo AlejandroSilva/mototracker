@@ -11,9 +11,9 @@ class Marker extends React.Component{
                 iconSize: [24,24]
             })
         }).addTo(this.props.map)
-        console.log(`${APP_HOST}/icon/car-fat.png`);
+        //console.log(`${APP_HOST}/icon/car-fat.png`);
 
-        console.log('Marker did mount, props: ', this.props)
+        //console.log('Marker did mount, props: ', this.props)
         //this.props.map.setZoom(5)
     }
     componentDidUpdate(prevProps/*, prevState*/) {
@@ -31,7 +31,7 @@ class Marker extends React.Component{
     }
 
     render(){
-        console.log('Marker render, props: ', this.props)
+        //console.log('Marker render, props: ', this.props)
         return (
             <h1>this is a marker</h1>
         )

@@ -4,6 +4,7 @@ let thinky = Thinky(dbConfig)
 let type = thinky.type
 let r = thinky.r
 // https://thinky.io/documentation/schemas/
+// Other models
 
 let Vehicle = thinky.createModel('Vehicle', {
     id: type.string(),

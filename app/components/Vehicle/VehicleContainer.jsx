@@ -57,7 +57,7 @@ class VechicleContainer extends React.Component {
                                 </li>
                                 <li className={activePath==='timelapse'? 'active':''}>
                                     <Link to={`/vehicle/${this.props.params.id}/timelapse`} data-toggle="tab">
-                                        Eventos del vehiculo
+                                        Historial recorrido
                                     </Link>
                                 </li>
                                 <li className={activePath==='edit'? 'active':''}>

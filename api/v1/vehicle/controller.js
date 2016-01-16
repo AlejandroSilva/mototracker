@@ -1,4 +1,5 @@
 import Vehicle from '../../../db/Vehicle.js'
+import Data    from '../../../db/Data.js'
 
 // GET /v1/vehicle/
 export const getAllVehicles = (req, res)=>{
@@ -64,4 +65,20 @@ export const deleteVehicle = (req, res, next)=>{
         res.status(204).send()
     })
     .catch(next)
+}
+
+// POST /v1/vehicle/:vehicleID/points
+export const findPoints = (req, res, next)=> {
+    console.log("BUSCANDO DATOS:")
+    Data
+        .findDuring(null, null)
+        .run()
+        .then(points=>{
+            console.log("DATA:", points)
+            res.status(200).json(points)
+        })
+        .catch(err=>{
+            console.log('DATA ERR:', err)
+            res.status(400).json(err)
+        })
 }

@@ -22,7 +22,7 @@ class SimpleMap extends React.Component{
         })
     }
     componentDidUpdate(prevProps/*, prevState*/) {
-        console.log("did update")
+        //console.log("did update")
         let { zoom, center } = this.props
         // update zoom
         if(zoom && zoom!==prevProps.zoom){
@@ -30,20 +30,21 @@ class SimpleMap extends React.Component{
         }
         // update center
         if(center!==prevProps.center){
-            console.log('Center view on:', center)
+            //console.log('Center view on:', center)
             this.mapboxmap.setView(center)
         }
 
     }
 
     render(){
-
         // agregar la propiedad "map" a los children, para que puedan manipular el mapa
-        return <div id={this.state.mapId}>
-            {(this.mapboxmap? React.Children.map(this.props.children, child => {
-                return child ? React.cloneElement(child, {map: this.mapboxmap}) : null;
-            }) : null)}
-        </div>
+        return (
+            <div id={this.state.mapId}>
+                {(this.mapboxmap? React.Children.map(this.props.children, child => {
+                    return child ? React.cloneElement(child, {map: this.mapboxmap}) : null;
+                }) : null)}
+            </div>
+        )
     }
 }
 

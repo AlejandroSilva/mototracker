@@ -31,4 +31,8 @@ router.route('/:vehicleID')
     .put(auth.isAuthenticated, controller.updateVehicle)
     .delete(auth.isAuthenticated, controller.deleteVehicle)
 
+// ToDo: ordenar esto
+router.route('/:vehicleID/points')
+    .post(controller.findPoints)
+
 export default router
