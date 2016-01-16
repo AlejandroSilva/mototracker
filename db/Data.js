@@ -32,11 +32,22 @@ Data.ensureIndex('id')
 Data.belongsTo(Vehicle, 'vehicle', 'vehicleId', 'id')
 
 
-Data.defineStatic('findDuring', (dateStart, dateEnd)=>{
+Data.defineStatic('findDuring', (startDate, endDate)=>{
+    console.log("=============================");
+    console.log(startDate, endDate);
+    console.log("=============================");
     return Data
         .filter(function(data){
             return data("utcDatetime")
-                .during(r.time(2016,1,13, 15,0,0, "-03:00"), r.time(2016,1,18, 16,0,0, "-03:00"))
+                //.during(r.time(2016,1,13, 15,0,0, "-03:00"), r.time(2016,1,18, 16,0,0, "-03:00"))
+                .during(
+                    r.ISO8601(startDate),
+                    r.ISO8601(endDate),
+                    {
+                        leftBound: "closed",
+                        rightBound: "closed"
+                    }
+                )
         })
 })
 

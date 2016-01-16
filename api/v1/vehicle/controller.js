@@ -71,11 +71,14 @@ export const deleteVehicle = (req, res, next)=>{
 export const findPoints = (req, res, next)=> {
     console.log("BUSCANDO DATOS:")
     Data
-        .findDuring(null, null)
+        .findDuring(req.body.startDate, req.body.endDate)
         .run()
         .then(points=>{
-            console.log("DATA:", points)
-            res.status(200).json(points)
+            //console.log("DATA:", points)
+            res.status(200).json({
+                reqBody: req.body,
+                points
+            })
         })
         .catch(err=>{
             console.log('DATA ERR:', err)
