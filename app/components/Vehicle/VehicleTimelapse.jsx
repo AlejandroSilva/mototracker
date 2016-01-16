@@ -84,7 +84,7 @@ class VehicleEvents extends React.Component {
                         <h3 className="box-title">{'Recorrido del vehículo en un periodo de tiempo'}</h3>
                     </div>
                     <div className="box-body">
-                        <h3>Selecciona un rango de dias:</h3>
+                        <h3>Seleccione un rango de días:</h3>
                         <DateRange
                             ranges={defaultRanges}
                             onChange={this.rangeSelected.bind(this)}

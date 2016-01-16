@@ -16,7 +16,7 @@ class MenuEvents extends React.Component {
                         <a href="#">Limite de velocidad<small className="label pull-right bg-red">2</small></a>
                     </li>
                     <li>
-                        <a href="#">item2<small className="label pull-right bg-red">3</small></a>
+                        <a href="#">Geocercas<small className="label pull-right bg-red">3</small></a>
                     </li>
                 </ul>
             </li>

@@ -65,7 +65,7 @@ class App extends React.Component {
                 <div>
                     {/* Cabecera de la pagina */}
                     <header className="main-header">
-                        <a href="index2.html" className="logo">
+                        <a href="#" className="logo">
                             <span className="logo-mini"><b>T</b>H</span>
                             <span className="logo-lg"><b>{APP_NAME}</b> <small>{APP_VERSION}</small></span>
                         </a>
