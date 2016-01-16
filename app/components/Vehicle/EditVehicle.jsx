@@ -25,16 +25,13 @@ import VehicleForm from './VehicleForm.jsx'
 class EditVehicle extends React.Component {
     render() {
         return (
-            <div className="box box-info">
-                {/*Si a VehicleForm, se le entregan datos , este generara un formulario para editarlo*/}
-                <VehicleForm
-                    updateVehicle={this.props.updateVehicle}
-                    addVehicle={this.props.addVehicle}
-                    deleteVehicle={this.props.deleteVehicle}
-                    pushState={this.props.history.pushState}
-                    theVehicle={this.props.theVehicle}
-                />
-            </div>
+            <VehicleForm
+                updateVehicle={this.props.updateVehicle}
+                addVehicle={this.props.addVehicle}
+                deleteVehicle={this.props.deleteVehicle}
+                pushState={this.props.history.pushState}
+                theVehicle={this.props.theVehicle}
+            />
         )
     }
 }

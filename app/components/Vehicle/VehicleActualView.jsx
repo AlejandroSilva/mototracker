@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import timeago from '../../../utils/timeago.js'
 
-
+// Components
+import { FormGroup } from './../ui/index'
 import SimpleMap from '../Map/SimpleMap.jsx'
 import Marker from '../Map/Marker.jsx'
 
@@ -25,22 +26,61 @@ class VehicleActualView extends React.Component {
                             <h3 className="box-title">{'Ubicación actual del vehiculo'}</h3>
                         </div>
                         <div className="box-body">
-                            <SimpleMap
-                                mapId="vehiclemap"
-                                center={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
-                                zoom={15}
-                            >
-                                <Marker
-                                    position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
-                                    drawLine={true}
-                                />
-                            </SimpleMap>
-                            <p>Lat,Long:   {theVehicle.lastData.coordinate[0]}, {theVehicle.lastData.coordinate[1]}</p>
-                            <p>hora:       {theVehicle.lastData.utcDatetime}</p>
-                            <p>visto hace: {timeago(theVehicle.lastData.utcDatetime)}</p>
-                            <p>Speed:      {theVehicle.lastData.speed}</p>
-                            <p>Curse:      {theVehicle.lastData.curse}</p>
-                            <p>vbat:       {theVehicle.lastData.vbat}</p>
+                            <div className="row">
+                                <SimpleMap
+                                    mapId="vehiclemap"
+                                    center={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                                    zoom={15}
+                                >
+                                    <Marker
+                                        position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                                        drawLine={true}
+                                    />
+                                </SimpleMap>
+                            </div>
+
+
+                            {/* DATOS DE LA ULTIMA UBICACION */}
+                            <form className="form-horizontal" onSubmit={()=>{}}>
+                                <div className="box-body">
+                                    <FormGroup label="Lat,Long">
+                                        <input type="text" className="form-control"
+                                               value={`${theVehicle.lastData.coordinate[0]}, ${theVehicle.lastData.coordinate[1]}`}
+                                               disabled
+                                        />
+                                    </FormGroup>
+                                    <FormGroup label="Fecha y hora">
+                                        <input type="text" className="form-control"
+                                               value={theVehicle.lastData.utcDatetime}
+                                               disabled
+                                        />
+                                    </FormGroup>
+                                    <FormGroup label="Velocidad">
+                                        <input type="text" className="form-control"
+                                               value={`${theVehicle.lastData.speed} Kms/Hr`}
+                                               disabled
+                                        />
+                                    </FormGroup>
+                                    <FormGroup label="Dirección">
+                                        <input type="text" className="form-control"
+                                               value={`${theVehicle.lastData.curse} grados`}
+                                               disabled
+                                        />
+                                    </FormGroup>
+                                    <FormGroup label="Bateria">
+                                        <input type="text" className="form-control"
+                                               value={`${theVehicle.lastData.vbat}% restante`}
+                                               disabled
+                                        />
+                                    </FormGroup>
+                                    <FormGroup label="Visto hace:">
+                                        <input type="text" className="form-control"
+                                               value={timeago(theVehicle.lastData.utcDatetime)}
+                                               disabled
+                                        />
+                                    </FormGroup>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 )

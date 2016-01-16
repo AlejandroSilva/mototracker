@@ -35,8 +35,8 @@ class VehicleEvents extends React.Component {
         }
     }
     rangeSelected(range){
-        const startDate = range.startDate.format('DD/MMMM/YYYY') // h:mma
-        const endDate = range.endDate.format('DD/MMMM/YYYY')
+        const startDate = range.startDate.format('DD/MM/YYYY') // h:mma
+        const endDate = range.endDate.format('DD/MM/YYYY')
 
         this.setState({
             startDate: range.startDate,
@@ -48,13 +48,11 @@ class VehicleEvents extends React.Component {
     render() {
         const theVehicle = this.props.theVehicle
 
-        let content
         if(!theVehicle.name){
-            content = "[el vehiculo no existe]"
+            return "[el vehiculo no existe]"
 
         }else if(theVehicle.lastData && theVehicle.lastData.raw){
-
-            content = (
+            return (
                 <div className="box box-info">
                     <div className="box-header with-border">
                         <h3 className="box-title">{'Recorrido del vehículo en un periodo de tiempo'}</h3>
@@ -69,33 +67,24 @@ class VehicleEvents extends React.Component {
 
                         <h3>{this.state.message}</h3>
                         <h1>HACER LA PETICION AL SERVIDOR!!!!!!!!!!</h1>
-                        <SimpleMap
-                            mapId="vehiclemap"
-                            center={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
-                            zoom={15}>
+                        <div className="row">
+                            <SimpleMap
+                                mapId="vehiclemap"
+                                center={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                                zoom={15}>
 
-                            <Marker
-                                position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
-                                drawLine={true}
-                            />
-                        </SimpleMap>
-                        <p>Lat,Long:   {theVehicle.lastData.coordinate[0]}, {theVehicle.lastData.coordinate[1]}</p>
-                        <p>hora:       {theVehicle.lastData.utcDatetime}</p>
-                        <p>Speed:      {theVehicle.lastData.speed}</p>
-                        <p>Curse:      {theVehicle.lastData.curse}</p>
-                        <p>vbat:       {theVehicle.lastData.vbat}</p>
+                                <Marker
+                                    position={[theVehicle.lastData.coordinate[1], theVehicle.lastData.coordinate[0]]}
+                                    drawLine={true}
+                                />
+                            </SimpleMap>
+                        </div>
                     </div>
                 </div>
             )
         }else{
-            content = <h3>Todavia no se reciben datos de este vehiculo</h3>
+            return <h3>Todavia no se reciben datos de este vehiculo</h3>
         }
-
-        return (
-            <div>
-                {(content)}
-            </div>
-        )
     }
 }
 export default VehicleEvents

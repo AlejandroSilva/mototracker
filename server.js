@@ -62,7 +62,6 @@ let server = app.listen(appConfig.nodejsPort, ()=> {
         })
 })
 
-
 // we start a webpack-dev-server with our config
 if(appConfig.environment==='DEV'){
     let webpack = require('webpack')
