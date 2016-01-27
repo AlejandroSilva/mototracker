@@ -1,7 +1,7 @@
 {
-  "name": "MotoLocator",
-  "version": "1.12.5",
-  "description": "sistema de rastreo por gps para proyecto de titulo",
+  "name": "MotoTracker",
+  "version": "1.12.6",
+  "description": "Sistema basico de rastreo por gps.",
   "repository": {
     "type": "git",
     "url": "git@github.com/AlejandroSilva/mototracker.git"

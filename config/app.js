@@ -23,7 +23,7 @@ if(NODE_ENV==='development'){
 
 }else if(NODE_ENV==='production'){
     config = {
-        host: '104.236.49.255',
+        host: 'mototracker.xyz',
         nodejsPort: 8008,
         name: appName,
         version: appVersion,
