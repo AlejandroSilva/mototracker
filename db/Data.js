@@ -48,6 +48,7 @@ Data.defineStatic('findDuring', (startDate, endDate)=>{
                         rightBound: "closed"
                     }
                 )
+                .orderBy('utcDatetime')
         })
 })
 
